@@ -1,0 +1,2654 @@
+%%%%%
+%d\'ecommenter pour revenir \`a une pr\'esentation normal pour tirage
+%%%%%%%%%%%
+\documentclass[a4paper,12pt]{article}
+% \documentclass[a4paper,9pt,landscape,twocolumn]{article}
+ % pour revenir \`a une pr\'esentation normal pour tirage
+\usepackage[]{beamerarticle}
+%\usepackage[]{exostylepapier}
+%\usepackage{hyperref}             % pour que les liens apparaissent normalement dans le dvi
+\mode<article>{\usepackage{fullpage}} %option qui g\'en\`ere des pages pleines normale
+\mode<presentation>{\usepackage{berlin}}
+\usepackage[]{exostylepapier}
+\usepackage[]{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{texgraph}
+
+% 
+
+%%%%%%%% les options pour hyperref
+\usepackage[ps2pdf,
+bookmarks=true,
+bookmarksnumbered=true,
+pdfstartview = FitH,
+pdfborder={0 0 0},
+colorlinks=true,
+urlcolor=blue,
+linkcolor=blue,
+pdfpagelayout= SinglePage,
+]{hyperref}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% decommenter pour genere le powerpoint like
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+ \usepackage{epic,eepic,graphicx,color}
+\definecolor{monjaune}{rgb}{1,.85,0.6}
+\definecolor{monfond}{rgb}{.95,.9,0.6}
+% \setbeamercolor{normal text}{bg=monjaune}
+\setbeamercolor{background canvas}{bg=monfond}
+
+
+% 
+% 
+\setbeamercovered{transparent}%l'autre option : invisible, cache totalement le texte pas encore d\'ecouvert (ie, n'utilise pas le ``gris\'e'').
+% 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% en enlevant #1 dans elim, toutes les notes perso disparaissent (ou les exemples....)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%   avec notes  et les exemples
+% \newcommand{\elim}[1]{#1}
+% \newcommand{\notep}[1]{\elim{{\hfill\color{red}\it #1}}}
+% \newcommand{\exemp}[1]{\color{blue}\it\underline{\it Exemple \thePROPno } : #1}
+% \newcommand{\exer}[1]{\color{green}\it\underline{\it Exercice} : #1}
+%%%%%%%%%%%%%%%%%%%%%%   avec lien
+  \renewcommand{\monlien}[2]{}
+\renewcommand{\macible}[1]{}
+% %%%%%%%%%%%%%%%%%%% en vidant ces commandes, on enl\`eve les liens et les notes.
+% \renewcommand{\monlien}[2]{}
+% \renewcommand{\macible}[1]{}
+% \renewcommand{\elim}[1]{}
+% \renewcommand{\exer}[1]{}
+\renewcommand{\notep}[1]{}
+% \renewcommand{\exemp}[1]{}
+% 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% les fontes et les caract\`eres
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[french]{babel}
+  \usepackage[]{color}
+\usepackage{fourier}
+
+
+
+\begin{document}
+% \newtheorem{mytheorem}[theorem]{{Propri\'et\'e} }
+%  \newtheorem{mydefinition}[theorem]{{D\'efinition } }
+
+
+
+%\newtheorem{mytheorem}[theorem]{{Propri\'et\'e } \thePROPno}
+%\newtheorem{mydefinition}[theorem]{{D\'efinition  }  \thePROPno}
+%\newtheorem{mycorrolary}[theorem]{{Corollaire } \thePROPno}
+
+\newtheorem{mytheorem}[theorem]{{Propri\'et\'e } }
+\newtheorem{mydefinition}[theorem]{{D\'efinition  } }
+\newtheorem{mycorrolary}[theorem]{{Corollaire } }
+
+\begin{frame}
+\begin{center}
+ \bf\fbox{\Large{LES NOMBRES COMPLEXES-I}}
+\end{center}
+\end{frame}
+
+\section{Nombres complexes. Forme alg\'ebrique }
+
+
+
+\frameprop{ensemble $\C$}{
+Il existe un ensemble not\'e  \alert{\bf $\mathbb{C}$}  appel\'e {\bf ensemble des nombres
+    complexes} qui poss\`ede les propri\'et\'es suivantes :
+\begin{itemize}
+\item[$\bullet$] $\C$ contient l'ensemble des nombres r\'eels \pause
+\item[$\bullet$] il contient un nombre $i$ tel que \alert{\bf \maboite{$i^2=-1$}} \pause
+\item[$\bullet$] il est muni d'une \alert{\bf addition et d'une multiplication} qui ont les
+  \alert{\bf mêmes propri\'et\'es que dans $\R$}. \pause 
+\end{itemize}
+}{
+\exemp{$z_1=1+2i$, $z_2=-1+i$, $z_3=4$, $z_4=-6i$}
+}.
+
+\notep{ $i$ n'est pas un nombre réel, pas plus que $\sqrt{2}$ n'est une fraction}
+
+\notep{intérêt mathématique : on va pouvoir résoudre plus d'équation (méthode de Cardan)}
+ 
+\notep{ intérêt en physique : modélisation des tensions, intensités... dans certains circuits électronique}
+
+ 
+
+\macible{formalg}{}
+\framedef{}{
+Tout nombre complexe peut s'\'ecrire sous la forme :
+\maboite{$z=x+iy$} avec \maboite{$x,y\in \R$}.
+\pause
+Cette \'ecriture est appel\'ee \alert{\bf forme alg\'ebrique de $z$} :
+
+\begin{enumerate}
+\item[$\bullet$] $x$ est appel\'ee \alert{\bf partie r\'eelle} de $z$, not\'ee $\text{Re}(z)$.
+\item[$\bullet$] $y$ est appel\'ee \alert{\bf partie imaginaire} de $z$, not\'ee $\text{Im}(z)$.
+\end{enumerate}\pause
+Cette \'ecriture est {\bf unique}, autrement dit :
+Si $z=x+iy$ et $z'=x'+iy'$ alors :
+\begin{center} 
+\maboite{$z=z' \iff 
+\left\lbrace
+\begin{array}{rcl}
+x&=&x'  \\
+ y&=&y'\\
+\end{array}
+\right.
+$}
+\end{center}
+}
+{
+\monlien{exformalg}{\maboite{Exemple}}\pause
+
+\exemp{
+Donner les parties r\'eelles et imaginaires des complexes $z_i$ de l'exemple 1 
+
+et de : $z_5=1+i+2$, $z_6=z_1\times z_2$, $z_7=z_1^2$, $z_8=3+\lambda i$. 
+}
+}
+
+%\newpage
+
+\section{Repr\'esentation graphique  des complexes}
+
+
+\setbeamercovered{invisible}
+
+\begin{frame}[fragile]
+
+Le plan est muni d'un rep\`ere \alert{\bf orthonorm\'e direct} 
+$(O ; \vect{OU} , \vect{OV})=(O;\vect{u},\vect{v})$.
+
+
+\begin{texgraph}[file,call]
+Cmd	[Fenetre(-2.3+3.2*i,4.2-2.3*i,1+i), Marges(0.5,0.5,0.5,0.5), Border(0)];
+
+Var
+    M = 2.9+2.5*i;
+
+Graph objet1 = [
+	Arrows:=1,xylabelpos:=0,
+	Axes(0,1+i,2+2*i),
+	Arrows:=0,tMin:=-2.3,tMax:=4.2,
+	LabelDot(0,"O","SE",1),
+	tMin:=-2.3,tMax:=4.2,
+	Color:=red,
+	Width:=6,
+	Arrows:=1,
+	Seg([0,1]),
+	Seg([0,i]),
+	LabelStyle:=top,
+	Label(1,"$U$"),
+	LabelStyle:=right,
+	Label(i,"$V$"),
+	Special("\pause"),
+	Width:=2,Color:=0,Arrows:=0,tMin:=-5,tMax:=5,LabelStyle:=0,
+	LabelStyle:=left,
+	Point(M),
+	Label(M,"$M(x;y)$"),
+	Special("\pause"),
+	tMin:=-2.3,tMax:=4.2,LabelStyle:=0,
+	LineStyle:=dotted,
+	Seg([M,Re(M)]),
+	Seg([M,i*Im(M)]),
+	Special("\pause"),
+	LineStyle:=solid,
+	Arrows:=1,
+	Seg([0,M]),
+	LabelAngle:=arccos(Re(M)/(abs(M)))*180/pi,
+	Label(.5*(M-.6*i),"$\vect{OM}(x;y)$"),
+	Arrows:=0,
+	Special("\pause"),
+	LabelAngle:=arccos(Re(M)/(abs(M)))*180/pi,
+	Label(.5*(M+.5*i),"$\vect{OM}(x+iy)$"),
+	tMin:=-2.3,tMax:=4.2,LabelAngle:=0,
+	Special("\pause"),
+	LabelStyle:=left,
+	Label(M,"$M(x;y)$ ou $M(x+iy)$"),
+];
+\end{texgraph}
+
+
+
+
+\end{frame}
+
+\setbeamercovered{transparent}
+
+
+
+\notep{bien faire le dessin progressif: on ne peut pas représenter sur un axe ...}
+
+
+
+
+\macible{points}{}
+\frameprop{}{
+Tout nombre complexe $z=x+iy$ peut \^etre repr\'esent\'e dans le plan par :
+
+ $\bullet$ un point du plan $M(x, y)$, appel\'ee {\bf image} (ponctuelle) de $z$ : 
+
+\hspace{1cm} \maboite{$z=x+iy\ \longleftrightarrow M(x;y)$}. \pause
+
+ $\bullet$ un vecteur du plan $\vec{u}(x, y)$, appel\'ee {\bf image} (vectorielle) de $z$ : 
+
+\hspace{1cm} \maboite{$z=x+iy\ \longleftrightarrow \vec{u}(x;y)$}.
+
+
+R\'eciproquement : \`A tout point $M(x, y)$ ou $\vec{u}(x, y)$ du plan, on associe le nombre complexe \hspace{1cm} $z=x+iy$, appel\'e \bf{affixe} du point $M$ ou du vecteur
+ $\vec{u}$.
+
+}{
+\pause
+\underline{Remarques }:
+\begin{itemize}
+\item[$\bullet$] Les complexes \alert{\bf \bf $z=a\in \R$}  sont
+  les nombres r\'eels, repr\'esent\'es sur \alert{\bf l'axe des abscisses}.\pause
+\item[$\bullet$] Les complexes \alert{\bf $z=ib$}, $b\in \R$  sont
+  les \alert{\bf imaginaires purs} et sont repr\'esent\'es sur \alert{\bf l'axe des ordonn\'ees}.\pause
+\item[$\bullet$] Le plan est alors appel\'e \alert{\bf \bf plan complexe}.
+\end{itemize}
+}
+
+\begin{frame}
+\exemp{
+\begin{enumerate}
+ \item 
+ Repr\'esenter les points $M_i$ d'affixes respectives $z_i$ de l'exemple 1 dans le plan complexe.\pause
+
+ \item Repr\'esenter les points d'affixe $z$ tels que $Re(z)=2$ puis $Im(z)=3$ \pause
+
+\item On consid\`ere le complexe $z=2a+b+i(b-1)$ $a$ et $b$ \'etant deux r\'eels. \pause
+D\'eterminer l'ensemble des points $M(a, b)$ tel que :
+ a) $z$ soit r\'eel \ \ \ \ b) $z$ soit imaginaire pur \ \ \ \ c) $z$ soit nul.
+
+\end{enumerate}
+}
+
+%\exer{1,2,3,4,5 feuille 1}
+\monlien{expoints}{Exemples}
+\monlien{exopoints}{Exercice}
+\end{frame}
+
+
+\vspace{-0,5cm}
+
+\section{\bf Calcul dans $\C$. Propri\'et\'es g\'eom\'etriques.}
+\vspace{-0,2cm}
+\subsection{\'Egalit\'e de deux nombres complexes et g\'eom\'etrie}
+\frameprop{}{
+ {\bf Deux points} ou {\bf deux vecteurs} du plan sont \'egaux si et seulement si leurs {\bf affixes sont \'egales}.
+}{
+\pause
+
+\exemp{
+%D\'eterminer les affixes de $M'_1$ et de $M'_3$ sym\'etriques  par rapport \`a l'origine respectivement de $M_1$ d'affixe $z_1$ et de $M_3$ d'affixe $z_3$.
+$a,b$ deux nombres r\'eels tels que $z=a+ib$. Soit $M$ le point d'affixe $z$ et $M'(iz+1)$. D\'eterminer $a$ et $b$  pour que $M=M'$. 
+}
+
+%\exer{6 feuille 1}
+}
+
+\vspace{-0,4cm}
+\subsection{Oppos\'e d'un nombre complexe}
+\framedef{}{
+L'oppos\'e du nombre complexe $z=x+iy$ est :
+\maboite{$-z=(-x)+i(-y)=-x-iy.$}
+}{
+\exemp{Donner la forme alg\'ebrique  et repr\'esenter les oppos\'es des $z_i$ de l'exemple 1.}
+\macible{oppose}{}
+}
+
+
+\framedef{i}{
+\macible{oppose}{}
+
+$z$ un nombre complexe associ\'e au point $M$. \alert{\bf L'oppos\'e} de $z$ not\'e $-z$ est l'affixe
+du \alert{\bf sym\'etrique} de $M$ par rapport \`a \alert{\bf l'origine}.
+
+Ou si $z$ est l'affixe de $\vect{w}$ alors \maboite{$-z$ est l'affixe de $-\vect{w}.$}
+}{
+\notep{faire  une figure }
+
+\notep{faire la preuve : mais en fait si on a fait les révisions avant .... c'est vite fait}
+
+\monlien{exoppose}{\monbouton{Exemples}}
+}
+\vspace{-0,4cm}
+\subsection{Addition}
+
+\frameprop{}{
+Si $z=x+iy$ et $z'=x'+iy'$ alors $z+z' = (x+x')+i(y+y')$ %et $z-z'=(a-a')+i(b-b')$
+}{
+\underline{Remarque} : dans la pratique, on  se passe de la formule en calculant avec les r\`egles habituelles.
+%
+$$(x+iy)+(x'+iy')=x+iy+x'+iy'=x+x'+i(y+y')$$
+
+\exemp{ Vérifier qu'on a bien avec les définitions : $z+(-z)=0$}
+}
+
+\framecorro{}{
+si $\vect{w}$ et $\vect{w}'$ sont d'affixes $z$ et $z'$ alors \maboite{$\vect{w}+\vect{w}'$ est d'affixe $z+z'$}.
+}{
+
+\notep{faire le dessin}
+}
+\vspace{-0,4cm}
+\subsection{Soustraction}
+
+\frameprop{}{
+Si $z=x+iy$ et $z'=x'+iy'$ alors \maboite{$z-z'=z+(-z')$} $= (x-x')+i(y-y')$
+}{
+}
+
+
+
+
+\framecorro{sousgeom}{
+ \begin{itemize}
+ \item[$\bullet$] si $\vect{w}$ et $\vect{w}'$ sont d'affixes $z$ et $z'$ alors \maboite{$\vect{w}-\vect{w}'$ est d'affixe $z-z'$}
+ \item[$\bullet$] si $A$ et $B$ sont d'affixes $z_{\scriptscriptstyle A}$ et $z_{\scriptscriptstyle B}$ alors \maboite{$\vect{AB}(z_{\scriptscriptstyle B}-z_{\scriptscriptstyle A})$}.
+\end{itemize}
+}{ 
+
+\notep{faire la preuve}
+
+\exemp{
+ Les points $\di A\left(-\frac{1}{2}-i\right)$, 
+$\di B\left(\frac{1}{2}+\frac{3i}{2}\right)$, 
+$\di C\left(2+\frac{1}{2}i\right)$,  
+$\di D\left(1-2i\right)$  forment-ils 
+un parall\'elogramme ?
+}
+
+
+
+}
+
+%\vspace{-0.5cm}
+
+\subsection{Multiplication par un nombre r\'eel}
+
+\frameprop{}{
+
+$z=x+iy$ et $\lambda\in \R$ alors $\lambda z=\lambda x+i\lambda y$
+}{
+%\underline{Remarque} : on peut \alert{\bf dans les calculs} se passer de la formule.
+}
+
+\framecorro{mulvect}{
+
+Si $\vect{w}$ est d'affixe $z$ alors \maboite{$\lambda \vect{w}$ est d'affixe $\lambda z$}.
+}{
+
+
+\exemp{
+Soient les points $A$, $B$ et $C$ d'affixes $3-i$, $2$ et $2i$
+sont-ils align\'es ?
+
+\monlien{exmulvect}{\monbouton{Exemples}}
+\monlien{exomulvect}{\monbouton{Exercice}}
+}
+
+%\exer{2 feuille 2}
+
+}
+
+
+
+
+%\subsection{Barycentre et milieux}
+
+\subsection{Milieux}
+
+%\vspace{-0.8cm}
+\frameprop{bary}{
+%$A$, $B$ et $C$ trois points d'affixes $z_{\scriptscriptstyle A},z_{\scriptscriptstyle B}$ et $z_{\scriptscriptstyle C}$. $\alpha, \beta, \gamma\in \R$ avec $\alpha +\beta +\gamma\neq 0$.
+
+%Le barycentre $G$ des points pond\'er\'es $(A;\alpha)$, $(B;\beta)$ et $(C,\gamma)$ a pour affixe
+%\begin{center}
+%\maboite{$\di z_{\scriptscriptstyle G}=\frac{\alpha z_{\scriptscriptstyle A}+\beta z_{\scriptscriptstyle B}+\gamma z_{\scriptscriptstyle C}}{\alpha+\beta+\gamma}.$}
+%\end{center}
+
+\pause
+
+Le milieu $I$ du segment $[AB]$ a pour affixe 
+%\begin{center}
+\maboite{$\di z_{\scriptscriptstyle I}=\frac{z_{\scriptscriptstyle A}+z_{\scriptscriptstyle B}}{2}$}
+%\end{center}
+}{
+
+\exemp{ $A(1+i)$, $B(3+i)$.
+D\'eterminer le milieu de $[AB]$
+
+%et $C(-3i)$
+%\begin{enumerate}
+ %\item D\'eterminer l'affixe de $G$, le centre de gravit\'e du triangle $ABC$
+ %\item D\'eterminer le milieu de $[AB]$
+ %\item V\'erifier par le calcul que $C,I,G$ sont align\'es.
+%\end{enumerate}
+
+}
+
+\monlien{exobary}{\monbouton{Exercices}}
+
+%\exer{3,5 feuille 2}
+}
+
+
+\subsection{Multiplication}
+
+\framedef{}{
+$z=x+iy$ et $z'=x'+iy'$ alors $z\times z'=(xx'-yy')+i(xy'+yx')$
+
+et on admet alors que toutes les r\`egles de calculs pour la somme et le produit de $\R$ restent valables.
+}{
+\exemp{
+Mettre sous forme alg\'ebrique : $(1+i)^2$, $(x-iy)^2$ avec $x,y$ nombres r\'eels.
+}
+
+\notep{pour l'instant, on ne comprend pas la signification géométrique de ce calcul.}
+}
+
+\section{Conjugu\'e d'un nombre complexe.}
+
+
+
+\subsection{\'Ecriture alg\'ebrique du conjugu\'e}
+
+
+
+\framedef{conjugalg}{
+
+Le {\bf conjugu\'e} du nombre complexe $z=x+iy$ est le nombre complexe  not\'e $\bar{z}$ tel que 
+\maboite{$\overline{z}=x-iy$}.
+
+}{
+\notep{ faire le dessin}
+}
+
+
+
+\subsection{D\'efinition g\'eom\'etrique du conjugu\'e}
+
+
+
+\framedef{conjugue}{
+$z\in \C$. $M$ d'affixe $z$. Le \alert{\bf conjugu\'e} de $z$, $\bar{z}$ est le complexe correspondant au sym\'etrique de $M$ par rapport \`a \alert{\bf l'axe des r\'eels}.
+}{
+%\hfill \hyperlink{exconjugue}{\monbouton{Exemple}}
+}
+
+% \subsection{\'Ecriture alg\'ebrique du conjugu\'e}
+% \frameprop{conjugalg}{
+% 
+% $z=x+iy$, alors \maboite{$\overline{z}=x-iy$}.
+% 
+% }
+{
+\notep{faire la preuve}
+
+\exemp{
+Donner la forme alg\'ebrique  des conjugu\'es des $z_i$ et repr\'esenter les points correspondants. 
+}
+
+%\exer{6,7,8}
+%\hfill \hyperlink{exoconjugalg}{\monbouton{Exercices}}
+}
+
+
+% \subsection{Module et argument du conjugu\'e}
+% \frameprop{}{
+% % \begin{enumerate}
+% % \item 
+% \maboite{$|\overline{z}|=|z|$} et \maboite{$\arg(\overline{z})=-\arg{{z}}.$}
+% % \item Si $z=r\times (\cos\theta+i\sin\theta)$ alors \maboite{$\overline{z}=r\times (\cos (-\theta)+i\sin (-\theta))$}
+% % \end{enumerate}
+% }{}
+% 
+
+%\vspace{-0.5cm}
+
+\subsection{Inverse}
+
+%\vspace{-0.1cm}
+
+\frameprop{}{
+Pour tout nombre complexe $z$ non nul, il existe un nombre complexe $z'$ tel que $zz'=1$. Ce nombre s'appelle l'inverse de $z$, not\'e $\dfrac{1}{z}$ et il est tel que :
+
+$$\dfrac{1}{z}=\dfrac{\bar{z}}{z\times \bar{z}}$$
+
+Si $z=x+iy \neq 0$ alors la forme alg\'ebrique de $\dfrac{1}{z}$ est :  $\dfrac{1}{z}=\dfrac{x}{x^2+y^2}+i\dfrac{-y}{x^2+y^2}$
+}{
+\notep{Faire remarquer le calcul pratique sur un exemple}
+
+\notep{Faire la preuve}
+
+\exemp{ Donner la forme alg\'ebrique des inverses de : $z_1$, $z_2$, $z_3$  }
+
+}
+
+%\vspace{-0.5cm}
+
+\subsection{Quotient}
+
+\framedef{}{
+$z_1,z_2$ deux nombres complexes avec $z_2\neq 0$. Le quotient est d\'efini par $\di \frac{z_1}{z_2}=z_1\times \frac{1}{z_2}$
+
+}{
+
+%\vspace{-0.3cm}
+
+\exemp{ 
+
+%\vspace{-0.2cm}
+
+\begin{enumerate}
+
+%\vspace{-0.1cm} 
+
+\item Mettre sous forme alg\'ebrique : $\dfrac{z_1}{z_2}$, $Z=\dfrac{(1+2i)(1-i)}{(1+i)(-4+7i)}$, puis $\dfrac{z_3}{z_4}$
+
+%\vspace{-0.1cm}
+
+\item R\'esoudre l'\'equation $(2+i)z-1+i=0$ 
+
+\end{enumerate} }
+
+%\exer{6,7 feuille 1}
+}
+
+%\vspace{-0.6cm}
+
+\subsection{Conjugaison et op\'erations}
+
+%\vspace{-0.3cm}
+
+\frameprop{}{ $z_1$, $z_2$ deux nombres complexes et $n\in \N$
+
+\begin{itemize}
+ \item[$\bullet$] \maboite{$\overline{\overline{z_1}}=z_1$}
+\maboite{$\overline{z_1+z_2}=\overline{z_1}+\overline{z_2}$} ,
+\maboite{$\overline{z_1\times z_2}=\overline{z_1}\times \overline{z_2}$},
+\maboite{$\overline{z_1^n}=\overline{z_1}^n $}
+%\maboite{$\di \overline{\left({\frac{z_1}{z_2}}\right)}=\frac{\overline{z_1}}{\overline{z_2}}$}
+
+\item[$\bullet$] $z_1+\overline{z_1}=2 \text{Re}(z_1)$,  \ \ $z_1-\overline{z_1}=2i \text{Im}(z_1)$
+
+\item[$\bullet$] $z_1$ est r\'eel si et seulement si $\overline{z_1}=z_1$
+
+\item[$\bullet$] $z_1$ est imaginaire pur si et seulement si $\overline{z_1}=-z_1$
+\end{itemize}
+}{
+\notep{faire les preuves}
+
+\exemp{
+\begin{enumerate}
+ \item Démontrer que le nombre $(1-i)^5+(1+i)^5$ est un nombre réel
+ \item Déterminer l'ensemble des point $M(z)$ tels que le point $M'$ d'affixe $Z'=z^2-2\bar{z}+1$ soit sur l'axe des réels.
+\end{enumerate}
+
+}
+}
+
+% \newpage
+% 
+% 
+% \section{Rappels sur les coordonn\'ees cart\'esiennes}
+% 	Dans tout ce qui suit, le plan est muni d'un rep\`ere orthonorm\'e $(O;\vect{u},\vect{v}).$
+% 
+% 
+% \setcounter{PROPno}{0}
+% 	
+% 	\subsection{Coordonn\'ees d'un vecteur-Coordonn\'ees d'un point}
+% 	\framedef{}{ Pour tout vecteur du plan $\vect{w}$ il existe un couple de nombres r\'eels $(x;y)$ unique tel que
+% 	$$\vect{w}=x\vect{u}+y\vect{v}.$$
+% 	Ce couple est appel\'e \underline{coordonn\'ees} de $\vect{w}$ dans le rep\`ere et on note $\vect{w}(x;y)$ ou 
+% 	$\vect{w}\left(
+% 	\begin{array}{c}
+% 	x \\
+% 	y
+% 	\end{array}
+% 	\right)$
+% 	}{}
+% 	
+% 	\framedef{}{ Pour tout point $A$ du plan, il existe un unique couple de r\'eels $(x_A;y_A)$ tel que 
+% 	$$\vect{OA}=x_A\vect{u}+y_A\vect{v}.$$ Ce couple est appel\'e \underline{coordonn\'ees} de $A$ dans le rep\`ere et on note $A(x_A;y_A)$
+% 	}{}
+% 	
+% 	\frameprop{}{ Soit $A(x_A;y_A)$ et $A(x_B;y_B)$ deux points du plan alors :
+% 	\fbox{$\vect{AB}(x_B-x_A;y_B-y_A)$}. 
+% 	}{}
+% 
+% 	\subsection{Coordonn\'ees d'une somme de vecteurs}
+% 	
+% 	\mapropriete{ Soit $\vect{w_1}(x_1;y_1)$ et $\vect{w_2}(x_2;y_2)$ deux vecteurs du plan alors 
+% 	le vecteur \fbox{$\vect{w_1}+\vect{w_2}$} a pour coordonn\'ees \fbox{$(x_1+x_2;y_1+y_2)$}.} 
+% 	
+% 	\subsection{Coordonn\'ees du produit par un nombre r\'eel}
+% 	\mapropriete{ Soit $\vect{w}(x;y)$ un vecteur du plan et$\lambda$ un nombre r\'eel alors 
+% 	le vecteur \fbox{$\lambda\vect{w_1}$} a pour coordonn\'ees \fbox{$(\lambda x;\lambda y)$}.} 
+% 	
+% 	
+% 	\subsection{Coordonn\'ees d'un barycentre}
+% 	
+% 	\mapropriete{ Soit $A(x_A;y_A)$, $B(x_B;y_B)$ et $C(x_C;y_C)$ trois points du plan. Soit $G$ le barycentre de $(A;\alpha)$, $(A;\beta)$ et $(C;\gamma)$ alors on a
+% 	$$G\left(\frac{\alpha x_A+\beta x_B+\gamma x_C}{\alpha +\beta +\gamma}; \frac{\alpha y_A+\beta y_B+\gamma y_C}{\alpha +\beta +\gamma} \right)$$  
+% 	}
+% 
+% 	
+% 	\mapropriete{
+% 	Si $I$ est le milieu de $[A,B]$ alors  :
+% 	\fbox{$\di I\left(\frac{x_A+x_B }{2};\frac{y_A+y_B }{2}\right)$}.
+% 	}
+% 	
+% 	\subsection{Sym\'etrie de centre l'origine}
+% 	
+% 	\mapropriete{
+% 	Soit $M(x;y)$ un point du plan alors son sym\'etrique par rapport \`a l'origine du rep\`ere $O$ a pour coordonn\'ees $(-x ; -y )$
+% 	}
+% 	\subsection{Sym\'etrie par rapport \`a l'axe des abscisses.}
+% 	
+% 	\mapropriete{
+% 	Soit $M(x;y)$ un point du plan alors son sym\'etrique par rapport \`a l'axe des abscisses a pour coordonn\'ees $(x ; y )$
+% 	}
+% 
+% \vspace{1cm}
+% 
+% 
+% \subsection{Exercices de r\'evision}
+% Dans les exercices qui suivent, le plan est muni d'un rep\`ere orthonorm\'e \Oij.\\
+% 
+% \EXO
+% 
+% $A(3;2)$, $B(-2;4)$ et $C(0;-1)$. 
+% \begin{enumerate}
+% \item D\'eterminer les coordonn\'ees du point $D$ tels que $ABCD$ soit un parall\'elogramme.
+% \item Le point $\di M\left(0;\frac{16}{5}\right)$ est-il align\'e avec les points $A$ et $B$ ?
+% \item D\'emontrer que $ABCD$ est un losange.
+% \item D\'emontrer que $ABCD$ n'est pas un carr\'e.
+% \end{enumerate}
+% 
+% 
+% \vspace{.5cm}
+% \EXO
+% 
+% $A\left(3;2\right)$ $B(-2;4)$, $C(-2;0)$ et $D\left(1;-\frac{6}{5}\right)$.
+% \begin{enumerate}
+% \item Quelle est la nature du quadrilat\`ere $ABCD$ ?
+% \item D\'eterminer les coordonn\'ee du centre de gravit\'e du triangle $ABC$
+% \end{enumerate}
+% 
+% 
+% \vspace{.5cm}
+% 
+% \EXO
+% 
+% $\Omega$ le point de coordonn\'ees $(-2;-1)$ 
+% \begin{enumerate}
+%  \item $A(2;4)$. D\'eterminer les coordonn\'ees du sym\'etriques de $A$ par rapport \`a $\Omega$
+%  \item Si $M(x;y)$ d\'eterminer les coordonn\'ees de son sym\'etriques par rapport \`a $\Omega$ en fonction de $x$ et $y$.
+% \end{enumerate}
+% 
+% 
+% \vspace{.5cm}
+% \EXO
+% 
+% Dans chacun des cas, dire repr\'esenter l'ensemble des points $M(x;y)$ satisfaisant la condition
+% 
+% \begin{enumerate}
+%  \item $\di \frac{x+y}{2}=3$
+%  \item $x^2+y^2-2y-3=0$
+%  \item $x^2-3y^2=0$
+%  \item $x^2y^2=1$
+% \end{enumerate}
+% 
+
+
+
+
+
+% \newpage
+% 
+% \section{Exercices}
+% %\underline{\Large\bf Nombres Complexes :Exercices feuille 1}
+% \subsection{Feuille 1}
+% \setcounter{EXOno}{0}
+% \begin{frame}
+% \macible{exoensembleC}{}
+% 
+% \EXO
+% En appliquant les r\`egles de calcul habituelles et le fait que $i^2=-1$, mettre les expressions suivantes sous la forme $x+iy$ avec $x,y$ des nombres r\'eels.
+% $$a)\ i\times 2i \ \ \ \ b)\ (2-i)^2\ \ \ \ c) 1-i\left(3+\frac{i}{2}\right)\ \ \ \ d)\ (3-i\sqrt{2})(3+i\sqrt{2})\ \ \ \ d)\ 1-i^{124} $$
+% 
+% \monlien{ensembleC}{\monbouton{Retour Cours}}
+% 
+% 
+% \EXO
+% 
+% Soit la fonction $f$ d\'efinie sur $\C$ par $f(z)=3iz+13-9i$
+% 
+% 
+%  D\'eterminer la forme alg\'ebrique de $f(-3)$, $f(2i)$ et $f(5+5i)$.
+% 
+% % Donner la forme alg\'ebrique des nombres complexes suivants :
+% % $$z_1=(1+i)+(1-i) \ \ \ \ z_2=i-(2-i)\ \ \ \ z_3=(3-i)(3+i)$$
+% 
+% \monlien{ensembleC}{\monbouton{Retour Cours}}
+% 
+% \end{frame}
+% 
+% 
+% \begin{frame}
+% \macible{exopoints}
+% \macible{exovocabulaire}{}
+% 
+% \EXO %\textit{(Repr\'esenter des nombres complexes dans le plan complexe)}
+% 
+% \begin{enumerate}
+% \item Dans le plan complexe, placer  les points $M_n$ d'affixe $i^n$ pour $n\in \N.$
+% \item Placer successivement les points d'affixe : $-3$,\ \ $2-i$,\ \ $-1-2i$,\ \ $1+i\times i$,\ \ $2i-3.$
+% \item Repr\'esenter les points $M$ d'affixe $z_M$ du plan complexe tels que :
+% \begin{enumerate}
+% \item $Re(z_M)=3$
+% \item $Im(z_M)=-2$
+% \item $Im(z_M)=2Re(z_M)+1$
+% \end{enumerate} 
+% \end{enumerate}
+% 
+% \monlien{points}{\maboite{Retour Cours}}
+% 
+% %\vspace*{-.5cm}
+% 
+% \EXO %\textit{(\'Egalit\'e de nombres complexes)}
+% 
+% \macible{exoegalite}{}
+% 
+% D\'eterminer dans chaque cas l'ensemble des points $M$ du plan dont l'affixe est $z=x+iy$
+% \begin{enumerate}
+% \item $(x+y)+i(x-y+3)=0$
+% \item $(xy-1)+ix$ imaginaire pur.
+% \item $i(x-y)+2x=1-i$
+% %\item $Re(z+1)=0.$
+% \end{enumerate}
+% 
+% 
+% \EXO
+% 
+% Le plan est muni d'un rep\`ere orthonorm\'e $(O,\vect{OU},\vect{OV})$.
+% 
+% 
+% Soit la fonction d\'efinie sur $\C$ par $f(z)=z^2$. 
+% % Pour tout point $M$ d'affixe
+% % $z$, on note $M'$ le point du plan d'affixe $z'=f(z)$
+% \begin{enumerate}
+% \item D\'eterminer l'ensemble des points $M$ d'affixe $z$ tels que $f(z)\in \R.$
+% \item D\'eterminer l'ensemble des points $M$ d'affixe $z$ tels que $f(z)$ est imaginaire pur.
+% \item D\'eterminer les solutions de l'\'equation $f(z)=i$, $f(z)=-4$
+% 
+% \end{enumerate}
+% 
+% \monlien{egalite}{\monbouton{Retour Cours}}
+% 
+% \end{frame}
+% 
+% 
+% 
+% 
+% 
+% \begin{frame}
+% \EXO
+% \macible{exo1modulearg}{}
+% 
+% Dans le plan muni d'un rep\`ere orthonorm\'e $(0;\vect{u},\vect{v})$ repr\'esenter dans chacun des cas suivants les points $M$ d'affixe $z$ tels que :
+% 
+% \begin{enumerate}
+% \item $|z|=3$
+% \item $\arg(z)= -\dfrac{\pi}{6}$
+% \item $\arg(z)=\dfrac{\pi}{3}$ ou $\dfrac{4\pi}{3}$
+% \item $\arg(z)=\dfrac{3\pi}{2}$ et $|z|=3$
+% \end{enumerate}
+% 
+% \monlien{modulearg}{\monbouton{Retour Cours}}
+% \end{frame}
+% 
+% 
+% 
+% \begin{frame}
+% \EXO
+% \macible{exopassage}{}
+% 
+% Pour chacun des complexes suivants, donner le module et un argument :
+% %
+% $$z_1=1+i, \ \ \ z_2=1-i\ \ \ \ z_3=-2 \ \ \ \ z_4=1+i\sqrt{3}\ \ \ \ 
+% z_4=-\sqrt{3}-i,  \ \ \ \ z_5=-2i
+%  $$
+% \monlien{passage}{\monbouton{Retour Cours}}
+% \end{frame}
+% 
+% 
+% 
+% 
+% 
+% \begin{frame}
+% \macible{exoconjugalg}{}
+% 
+% \EXO
+% \begin{enumerate}
+% \item Donner la forme alg\'ebrique du conjugu\'es de $z=\left(3-\dfrac{2i}{3}\right)$
+% \item \`A quelle condition a-t-on $\overline{1+xi}=1-xi$ ?
+% \end{enumerate}
+% \monlien{conjugalg}{\monbouton{Retour Cours}}
+% \end{frame}
+% 
+% 
+% 
+% 
+% 
+% \begin{frame}
+% 
+% \macible{exosousgeom}{}
+% 
+% \EXO %(\textit{Oppos\'es- Conjugu\'es})
+% 
+% Soit $z=-3+4i.$
+% \begin{enumerate}
+% \item Dans le plan complexe, placer  $A,\ B,\ C$ d'affixes $z, \bar{z}$ et $-z.$
+% \item D\'eterminer l'affixe du point $M$ tel que $ABCM$ soit un parall\'elogramme.
+% % \item Soit $z=a + ib$ avec $a,b\in \R$ un nombre complexe. D\'emontrer que les points $A(z)$, $B(\bar{z})$,
+% % $C(-z)$ et $D(-\bar{z})$ forment un parall\'elogramme.
+% \end{enumerate}
+% \end{frame}
+% \newpage
+% 
+% 
+% %\underline{\bf\Large Exercices 2 : Nombres Complexes}
+% \subsection{Exercices : feuille 2}
+% \setcounter{EXOno}{0}
+% \begin{frame}
+% \EXO
+% 
+% Soit $A(i)$, $B(1+3i)$ et $C(2)$.
+% \begin{enumerate}
+% \item D\'eterminer les affixes des vecteurs $\vect{AB}$ et $\vect{AC}$
+% \item Quelle est la nature du triangle $ABC$. D\'emontrer.
+% \end{enumerate}
+% 
+% 
+% \EXO 
+% 
+% Soit $z_1=1-i$ et $z_2=ti-2$ avec $t\in \R.$
+% \begin{enumerate}
+% \item Le plan complexe est muni d'un rep\`ere orthonorm\'e $(O;\vect{u},\vect{v}).$ Placer les points d'affixe $z_1$ et $z_2$ pour $t=\frac{5}{2}.$
+% \item Calculer en fonction de $t$ : $z_1+z_2$, $z_1-z_2$, $z_1+\bar{z}_2$
+% \item Soit $M_1$ et $M_2$ les points d'affixes $z_1$ et $z_2$. D\'eterminer $t$ pour que
+% $(M_1M_2)$ soit parall\`ele \`a l'axe des r\'eels.
+% \end{enumerate}
+% 
+% \monlien{sousgeom}{\monbouton{Retour cours}}
+% \end{frame}
+% 
+% 
+% \begin{frame}
+% 
+% \macible{exobary}{}
+% 
+% \EXO %\textit{(Nombres complexes et barycentres)}
+% 
+% $A,\ B$ et $C$ trois points d'affixes respectives $(1+2i), \ -1$ et $(2-2i).$
+% 
+% \begin{enumerate}
+% \item D\'eterminer l'affixe $z_G$ du point $G$ barycentre de $(A,1)$, $(B,1)$ et $(C,1).$
+% \item Si $m\in \R - \{-2\}$ d\'eterminer l'affixe $z_{G_m}$ de $G_m$ barycentre de 
+% $(A,1)$, $(B,1)$ et $(C,m).$
+% \item Que peut-on dire de $G_m$ quand $m=0$ ?
+% \item Soit $I$ le milieu de $[AB]$. D\'emontrer de deux façons que 
+% $\di z_{G_m}-z_I=\frac{m}{m+2}(z_C-z_I).$ 
+% % que l'ensemble des points $G_m$ quand $m$ d\'ecrit $\R$ est la droite $(CI)$ priv\'ee du point $C.$
+% \end{enumerate}
+% \monlien{bary}{\monbouton{Retour Cours}}
+% \end{frame}
+% 
+% 
+% 
+% 
+% 
+% 
+% %\vspace*{1cm}
+% 
+% 
+% 
+% %\newpage
+% %\vspace*{1cm}
+% 
+% \section{TD : fonction $z\mapsto z^2$}
+% %\underline{\bf\Large TD fonctions a variables complexes et transformations du plan}
+% 
+% \setcounter{EXOno}{0}
+% \EXO
+% Le plan ${\cal P}$ est muni d'un rep\`ere  orthonorm\'e direct $(O,\vect{u},\vect{v})$
+% 
+% 
+% \`A tout point $M(z)$ du plan on associe son image $M'(z')$ avec $z'=z^2.$
+% 
+% On d\'efinit ainsi une application $f : {\cal P} \longrightarrow {\cal P}$ en posant pour tout point $M$ : $f(M)=M'$
+% \begin{enumerate}
+% \item \underline{\bf Image - Ant\'ec\'edents}
+% \begin{enumerate}
+% \item Quelle est l'image par $f$ de : $A(2i)$; $B\left(\frac{2-i}{2}\right).$
+% \item Quels sont les ant\'ec\'edents de : $C'(-1)$; $D'(-2)$ ; $E'(i)$
+% \end{enumerate}
+% 
+% \item \underline{\bf Recherche de point(s) invariant(s)}
+% 
+% D\'eterminer les points $M$ invariants par $f$, c'est \`a dire tels que $f(M)=M$.
+% 
+% \item \underline{\bf Image d'ensemble de points}
+% \begin{enumerate}
+% \item Quelle est l'image de l'axe des r\'eels par $f$ ?
+% \item Quelle est l'image de la droite  $y=2x$ par $f$ ?
+% \end{enumerate}
+% \end{enumerate}
+% 
+% %\vspace*{-.5cm}
+% \EXO
+% %Le plan est muni d'un rep\`ere  orthonorm\'e direct $(O,\vect{u},\vect{v})$
+% 
+% 
+% A tout point $M(z)$ du plan on associe le point $M'(z')$ tel que
+% $z'=2\overline{z}+1.$
+% 
+% On d\'efinit ainsi une fonction $f : {\cal P} \longrightarrow {\cal P}$ en posant pour tout point $M$ : $f(M)=M'$
+% 
+% 
+% \begin{enumerate}
+% %\item \underline{\bf Image - Ant\'ec\'edents}
+% %\begin{enumerate}
+% \item Quelle est l'image par $f$ de : $A(2i)$; $B\left(\frac{2-i}{2}\right)$ ?
+% \item Quels sont les ant\'ec\'edents de : $C'(-1)$; $D'(-2)$ ; $E'(i)$ ?
+% %\end{enumerate}
+% 
+% %\item \underline{\bf Recherche de point(s) invariant(s)}
+% 
+% \item D\'eterminer les points $M$ invariants par $f$.
+% 
+% %\item \underline{\bf Image d'ensembles de points}
+% %\begin{enumerate}
+% \item Quelle est l'image de l'axe des r\'eels par $f$ ?
+% \item Quelle est l'image de la droite  $y=2x$ par $f$ ?
+% %\end{enumerate}
+% \end{enumerate}
+% 
+
+
+\newpage
+
+%\section{Exercices}
+\underline{\Large\bf Nombres Complexes : Exercices feuille 1}
+
+
+\vspace{.7cm}
+
+%\subsection{Feuille 1}
+\setcounter{EXOno}{0}
+
+\begin{frame}
+\macible{exoensembleC}{}
+
+\EXO
+En appliquant les r\`egles de calcul habituelles et le fait que $i^2=-1$, mettre les expressions suivantes sous la forme $x+iy$ avec $x,y$ des nombres r\'eels.
+$$a)\ i\times 2i \ \ \ \ b)\ (2-i)^2\ \ \ \ c) 1-i\left(3+\frac{i}{2}\right)\ \ \ \ d)\ (3-i\sqrt{2})(3+i\sqrt{2})\ \ \ \ d)\ 1-i^{124} $$
+
+
+\EXO
+\'Ecrire les nombres complexes suivants sous forme alg\'ebrique :
+$$a)\ 5i-(3+2i), \ \  \ b)\ (-4+2i)^2\ \ \ c)\ (5-11i)\left(2-\frac{i}{2}\right)\ \ \ 
+d)\ \left(\frac{1}{2}+i\frac{\sqrt{3}}{2}\right)^3\ \ \ 
+e)\ \left(\frac{1}{2}+i\frac{\sqrt{3}}{2}\right)^{2013}$$
+
+
+\monlien{ensembleC}{\monbouton{Retour Cours}}
+
+%\vspace{-.7cm}
+
+\EXO
+
+Soit la fonction $f$ d\'efinie sur $\C$ par $f(z)=3iz+13-9i$
+
+
+ D\'eterminer la forme alg\'ebrique de $f(-3)$, $f(2i)$ et $f(5+5i)$.
+
+% Donner la forme alg\'ebrique des nombres complexes suivants :
+% $$z_1=(1+i)+(1-i) \ \ \ \ z_2=i-(2-i)\ \ \ \ z_3=(3-i)(3+i)$$
+
+\monlien{ensembleC}{\monbouton{Retour Cours}}
+
+\end{frame}
+
+\vspace{.5cm}
+
+\EXO
+
+Pour les \'equations suivantes, les r\'esoudre dans $\R$ puis dans $\C.$
+$$ a)\ 3z+2i=1\ \ \ \ b)\ z^2-7=0\ \ \ \ c)\ z^2+16=0\ \ \ \ d)\ 4z^2=-3$$
+
+%%\vspace*{-.5cm}
+
+\macible{exopoints}
+\macible{exovocabulaire}{}
+
+\EXO %\textit{(Repr\'esenter des nombres complexes dans le plan complexe)}
+
+\begin{enumerate}
+\item Dans le plan complexe, placer  les points $M_n$ d'affixe $i^n$ pour $n\in \N.$
+\item Placer successivement les points d'affixe : $-3$,\ \ $2-i$,\ \ $-1-2i$,\ \ $1+i\times i$,\ \ $2i-3.$
+\item Repr\'esenter les points $M$ d'affixe $z_M$ du plan complexe tels que :
+\begin{enumerate}
+\item $Re(z_M)=3$
+\item $Im(z_M)=-2$
+\item $Im(z_M)=2Re(z_M)+1$
+\end{enumerate} 
+\end{enumerate}
+
+\monlien{points}{\maboite{Retour Cours}}
+
+
+
+\vspace{.5cm}
+
+\EXO %\textit{(\'Egalit\'e de nombres complexes)}
+
+\macible{exoegalite}{}
+
+D\'eterminer dans chaque cas l'ensemble des points $M$ du plan dont l'affixe est $z=x+iy$ v\'erifiant la condition :
+\begin{enumerate}
+\item $(x+y)+i(x-y+3)=0$
+\item $(xy-1)+ix$ imaginaire pur.
+\item $i(x-y)+2x=1-i$
+%\item $Re(z+1)=0.$
+\end{enumerate}
+
+
+\EXO
+
+\begin{enumerate}
+ \item Donner l'\'ecriture alg\'ebrique des nombres complexes  :
+$Z_1=\dfrac{-3_i}{2i+4}$;\ \  \ \ \ \  $Z_2=\dfrac{1}{\sqrt{3}+i}$
+
+\item Soit $z_3=-\dfrac{1}{2}+i\dfrac{\sqrt{3}}{2}$. D\'eterminer la forme alg\'ebrique de $\dfrac{1}{z_3^2}$
+
+\item Donner la forme alg\'ebrique de $1+i+i^2+.....+i^{2013}$
+
+\end{enumerate}
+
+\EXO
+
+\begin{enumerate}
+\item R\'esoudre les \'equations suivantes (on donnera le r\'esultat sous forme alg\'ebrique) :
+
+$iz+3=(4i-5)z-i$; \ \ \ \ \ \ $\dfrac{iz+2}{z-i}=5$
+
+\item R\'esoudre les syst\`emes suivants : $\left\lbrace\begin{array}{rcl} 
+							  2z_1 - z_2 & =&5 \\
+                                                         iz_1 +3z_2 &=&7i
+\end{array}\right.$ \ \ \ \ \ \ \ 
+$\left\lbrace\begin{array}{rcl} 
+							  z_1 - iz_2 & =&0\\
+                                                         2z_1 +z_2 &=&i
+\end{array}\right.$
+
+\end{enumerate}
+
+
+
+\newpage
+
+\underline{\bf\Large Nombres Complexes : Exercices-Feuille 2}
+% \subsection{Exercices : feuille 2}
+% \setcounter{EXOno}{0}
+
+
+
+\setcounter{EXOno}{0}
+
+\begin{frame}
+
+
+\vspace{.5cm}
+\EXO
+
+Dans le plan complexe, on consid\`ere les points $A(-2-i)$, $B(1)$, $C(-1+2i)$ et $D(-4+i)$.
+
+
+%\begin{enumerate}
+% \item 
+
+Quelle est la nature du quadrilat\`ere $ABCD$ ? D\'emontrer.
+
+Déterminer l'affixe du point $M$ tel que $ABDM$ soit un parallélogramme.
+% \item D\'eterminer le point $M$ tel que $ABMC$ soit un parall\'elogramme.
+%\end{enumerate}
+
+\vspace{.2cm}
+\EXO
+Dans le plan complexe on consid\`ere les points $A(-i)$, $B(1)$, $C(3-i)$ et $D(1+3i)$.
+\begin{enumerate}
+ \item D\'emontrer que les droites $(AB)$ et $(CD)$ ne sont pas parall\`eles.
+ \item $M(3+2i)$ est-il align\'e avec $A$ et $B$ ?
+ %\item(*) D\'eterminer par un calcul les coordonn\'ees de leur point d'intersection.
+\end{enumerate}
+
+
+
+\EXO 
+
+Soit $z_1=1-i$ et $z_2=ti-2$ avec $t\in \R.$
+\begin{enumerate}
+\item Le plan complexe est muni d'un rep\`ere orthonorm\'e $(O;\vect{u},\vect{v}).$ Placer les points d'affixe $z_1$ et $z_2$ pour $t=\frac{5}{2}.$
+\item Calculer en fonction de $t$ : $z_1+z_2$, $z_1-z_2$, $z_1+\bar{z}_2$
+\item Soit $M_1$ et $M_2$ les points d'affixes $z_1$ et $z_2$. D\'eterminer $t$ pour que
+$(M_1M_2)$ soit parall\`ele \`a l'axe des r\'eels.
+\end{enumerate}
+
+\monlien{sousgeom}{\monbouton{Retour cours}}
+\end{frame}
+
+
+\begin{frame}
+
+\macible{exobary}{}
+
+% 
+% 
+% \vspace{.2cm}
+% \EXO %\textit{(Nombres complexes et barycentres)}
+% 
+% $A,\ B$ et $C$ trois points d'affixes respectives $(1+2i), \ -1$ et $(2-2i).$
+% 
+% \begin{enumerate}
+% \item D\'eterminer l'affixe $z_G$ du point $G$ barycentre de $(A,1)$, $(B,1)$ et $(C,1).$
+% \item Si $m\in \R - \{-2\}$ d\'eterminer l'affixe $z_{G_m}$ de $G_m$ barycentre de 
+% $(A,1)$, $(B,1)$ et $(C,m).$
+% \item Que peut-on dire de $G_m$ quand $m=0$ ? Quand $m=1$ ?
+% \item Soit $I$ le milieu de $[AB]$. D\'emontrer de deux façons que 
+% $\di z_{G_m}-z_I=\frac{m}{m+2}(z_C-z_I).$ 
+% % que l'ensemble des points $G_m$ quand $m$ d\'ecrit $\R$ est la droite $(CI)$ priv\'ee du point $C.$
+% \end{enumerate}
+\monlien{bary}{\monbouton{Retour Cours}}
+\end{frame}
+
+
+\begin{frame}
+
+\macible{exosousgeom}{}
+
+\vspace{.2cm}
+\EXO %(\textit{Oppos\'es- Conjugu\'es})
+
+Soit $z=-3+4i.$
+\begin{enumerate}
+\item Dans le plan complexe, placer  $A,\ B,\ C$ d'affixes $z, \bar{z}$ et $-z.$
+\item D\'eterminer l'affixe du point $M$ tel que $ABCM$ soit un parall\'elogramme.
+% \item Soit $z=a + ib$ avec $a,b\in \R$ un nombre complexe. D\'emontrer que les points $A(z)$, $B(\bar{z})$,
+% $C(-z)$ et $D(-\bar{z})$ forment un parall\'elogramme.
+\end{enumerate}
+\end{frame}
+
+\vspace{.2cm}
+\EXO
+
+Soit $A(-2+5i)$
+\begin{enumerate}
+ \item Pour tout point $M$ d'affixe $z$, d\'eterminer l'affixe $z'$ de son sym\'etrique par rapport \`a $A$ (en fonction de $z$)
+ \item En d\'eduire l'affixe de l'image du point $B(3-i)$ par cette sym\'etrie. 
+\item V\'erifier par un calcul avec les nombres complexes que la sym\'etrie par rapport \`a $A$ conserve les milieux.
+\end{enumerate}
+
+
+\vspace{.2cm}
+\EXO
+Soit la fonction $f$ d\'efinie sur $\C$ par $f(z)=z^2+5z+3$
+\begin{enumerate}
+ \item D\'emontrer que $f(\bar{z})=\overline{f(z)}$.
+ \item D\'eterminer $f(1+i)$ et en d\'eduire $f(1-i)$.
+\end{enumerate}
+
+
+\macible{exoconjugalg}{}
+
+\vspace{.2cm}
+\EXO
+Dans chacun des cas d\'eterminer l'ensemble des points $M$ d\'affixe $z$ tels que
+ 
+$$a)\ 2z+3=i\bar{z}+1\ \ \ b) z\bar{z}+2(z+\bar{z})=0$$
+
+
+\vspace{.2cm}
+\EXO
+%Le plan est muni d'un rep\`ere  orthonorm\'e direct $(O,\vect{u},\vect{v})$
+
+
+A tout point $M(z)$ du plan on associe le point $M'(z')$ tel que
+$z'=2\overline{z}+1.$
+
+On d\'efinit ainsi une fonction $f : {\cal P} \longrightarrow {\cal P}$ en posant pour tout point $M$ : $f(M)=M'$
+
+
+\begin{enumerate}
+%\item \underline{\bf Image - Ant\'ec\'edents}
+%\begin{enumerate}
+\item D\'eterminer les images par $f$ des points A(1), B(i) et C(-1+2i). f conserve-t-elle l'alignement?  
+%\item Quelle est l'image par $f$ de : $A(2i)$; $B\left(\frac{2-i}{2}\right)$ ?
+\item Quels sont les ant\'ec\'edents de : $C'(-1)$; $D'(-2)$ ; $E'(i)$ ?
+%\end{enumerate}
+
+%\item \underline{\bf Recherche de point(s) invariant(s)}
+
+\item D\'eterminer les points $M$ invariants par $f$. ($f(M)=M)$
+\item D\'emontrer que l'application $f$ conserve les milieux.
+%\item \underline{\bf Image d'ensembles de points}
+%\begin{enumerate}
+\item Quelle est l'image de l'axe des r\'eels par $f$ ?
+\item Quelle est l'image de la droite  $y=2x$ par $f$ ?
+%\end{enumerate}
+\end{enumerate}
+
+
+\notep{il manque des exos employant $z\in \R \iff z=\bar{z}$}
+
+\notep{peut-être ajouter encore des exos de bases}
+
+
+\end{document}
+
+
+\newpage
+\section{Les exemples}
+
+\subsection{Ensemble des nombres complexes}
+
+\begin{frame}
+\macible{exensembleC}{}
+$i^2$, $i^3$, $i^4$
+
+$z_1=1+i$, $z_2=-1+i\sqrt{3}$, $z_3=4$, $z_4=-6i$.
+
+% $i+1$, $3+i$, ....
+% 
+% $i(1+i)$
+\monlien{ensembleC}{\monbouton{Retour Cours}}
+\end{frame}
+
+\subsection{Vocabulaire-Forme alg\'ebrique}
+\begin{frame}
+\hypertarget{exformalg}{}
+
+Donner la partie r\'eelle est la partie imaginaire de
+\begin{enumerate}
+
+\item $z_1=1+2i$, $z_2=1-i$, $z_3=4$, $z_4=-6i$.
+\item $z_1=1+i+2$. %n'est pas la  de $z$. $z=3+i$ est la forme alg\'ebrique.
+\item $z_2=(4+i)(2-3i)$.
+\item $z_3=-3-i$. %$Re(z)= ?$ $Im(z)=?$
+\item $z_4=-2i$ %..... même chose
+\item $z_5=3+\lambda i$ %même chose 
+\end{enumerate}
+
+\monlien{formalg}{\monbouton{Retour Cours}}
+\end{frame}
+
+\subsection{Points-Affixes}
+\macible{expoints}{}
+
+\begin{enumerate}
+\item Repr\'esenter les points et les vecteurs d'affixes $3-i$, $3+2i$, $i-4$, $5$, $2i$
+%\item Repr\'esenter les vecteurs d'affixe $-2-i$, $-(3+\frac{i}{2})$.
+\item Repr\'esenter les points d'affixe  $z$ tels que $Re(z)=2$, $Im(z)=-3$
+\end{enumerate}
+
+
+
+
+
+\monlien{points}{\maboite{Retour Cours}}
+
+\subsection{Vecteurs et nombres complexes}
+\begin{frame}
+\hypertarget{exvecteurs}{}
+\begin{enumerate}
+ \item Exercice graphique (lecture d'affixe)
+ \item $A$ d'affixe $a=2+i$. Repr\'esenter le points $B$ tel que $\vect{AB}$ soit d'affixe 
+$-2+3i$.
+\end{enumerate}
+
+
+
+\monlien{vecteurs}{\monbouton{Retour Cours}}
+\end{frame}
+
+\subsection{Oppos\'e}
+\begin{frame}
+\hypertarget{exoppose}{}
+$z_1=3+2i \ \ z_2=-1+2i$ Donner $-z_1,-z_2$ et $-(-z_1)$
+\monlien{oppose}{\monbouton{Retour}}
+\end{frame}
+
+\subsection{Conjugu\'e}
+\begin{frame}
+\hypertarget{exconjugue}{}
+$z_1=3+2i \ \ z_2=-1+2i$ Donner $\bar{z}_1,\bar{z}_2$ et $\bar{\bar{z}}_2$
+\monlien{oppose}{\monbouton{Retour}}
+\end{frame}
+
+\subsection{G\'eom\'etrie et soustraction}
+
+\begin{frame}
+\hypertarget{exsousgeom}{}
+
+\begin{enumerate}
+\item Les points $A()$, $B()$ $C()$ et $D()$ forment-ils un parall\'elogramme ?
+\end{enumerate}
+\monlien{sousgeom}{\monbouton{Retour Cours}}
+\end{frame}
+
+\subsection{Multiplication par un r\'eel}
+\begin{frame}
+\hypertarget{exmulvect}{}
+Soit $A$,$B$ et $C$ d'affixe $3-i$, $2$ et $2i$
+
+Les points $A$, $B$ et $C$ sont-ils align\'es ?
+
+\monlien{mulvect}{\monbouton{Retour Cours}}
+\end{frame}
+
+%\newpage
+
+
+
+
+\newpage
+
+%\section{TD fonctions a variables complexes et transformations du plan}
+
+\underline{\bf TD fonctions a variables complexes et transformations du plan}
+
+\setcounter{EXOno}{0}
+\EXO
+Le plan est muni d'un rep\`ere  orthonorm\'e direct $(O,\vect{u},\vect{v})$
+
+
+\`A tout point $M(z)$ du plan on associe son image $M'(z')$ avec $z'=z^2.$
+
+On d\'efinit ainsi une fonction $f : {\cal P} \longrightarrow {\cal P}$ en posant pour tout point $M$ : $f(M)=M'$
+\begin{enumerate}
+\item \underline{\bf Image - Ant\'ec\'edents}
+\begin{enumerate}
+\item Quelle est l'image par $f$ de : $A(2i)$; $B\left(\frac{1-i}{2}\right).$
+\item Quels sont les ant\'ec\'edents de : $C'(-1)$; $D'(-2)$ ; $E'(i)$
+\end{enumerate}
+
+\item \underline{\bf Recherche de point(s) invariant(s)}
+
+D\'eterminer les points $M$ invariants par $f$, c'est \`a dire tels que $f(M)=M$.
+
+\item \underline{\bf Image d'ensemble de points}
+\begin{enumerate}
+\item Quelle est l'image de l'axe des r\'eels par $f$ ?
+\item Quelle est l'image de la droite  $y=2x$ par $f$ ?
+\end{enumerate}
+\end{enumerate}
+
+%\vspace*{-.5cm}
+\EXO
+%Le plan est muni d'un rep\`ere  orthonorm\'e direct $(O,\vect{u},\vect{v})$
+
+
+A tout point $M(z)$ du plan on associe le point $M'(z')$ tel que
+$z'=2\overline{z}+1.$
+
+On d\'efinit ainsi une fonction $f : {\cal P} \longrightarrow {\cal P}$ en posant pour tout point $M$ : $f(M)=M'$
+
+
+\begin{enumerate}
+%\item \underline{\bf Image - Ant\'ec\'edents}
+%\begin{enumerate}
+\item Quelle est l'image par $f$ de : $A(2i)$; $B\left(\frac{1-i}{2}\right)$ ?
+\item Quels sont les ant\'ec\'edents de : $C'(-1)$; $D'(-2)$ ; $E'(i)$ ?
+%\end{enumerate}
+
+%\item \underline{\bf Recherche de point(s) invariant(s)}
+
+\item D\'eterminer les points $M$ invariants par $f$.
+
+%\item \underline{\bf Image d'ensembles de points}
+%\begin{enumerate}
+\item Quelle est l'image de l'axe des r\'eels par $f$ ?
+\item Quelle est l'image de la droite  $y=2x$ par $f$ ?
+%\end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+%\vspace*{1cm}
+
+
+\underline{\bf TD fonctions a variables complexes et transformations du plan}
+
+%\vspace*{-.5cm}
+\setcounter{EXOno}{0}
+\EXO
+Le plan est muni d'un rep\`ere  orthonorm\'e direct $(O,\vect{u},\vect{v})$
+
+
+\`A tout point $M(z)$ du plan on associe son image $M'(z')$ avec $z'=z^2.$
+
+On d\'efinit ainsi une fonction $f : {\cal P} \longrightarrow {\cal P}$ en posant pour tout point $M$ : $f(M)=M'$
+\begin{enumerate}
+\item \underline{\bf Image - Ant\'ec\'edents}
+\begin{enumerate}
+\item Quelle est l'image par $f$ de : $A(2i)$; $B\left(\frac{1-i}{2}\right).$
+\item Quels sont les ant\'ec\'edents de : $C'(-1)$; $D'(-2)$ ; $E'(i)$
+\end{enumerate}
+
+\item \underline{\bf Recherche de point(s) invariant(s)}
+
+D\'eterminer les points $M$ invariants par $f$, c'est \`a dire tels que $f(M)=M$.
+
+\item \underline{\bf Image d'ensemble de points}
+\begin{enumerate}
+\item Quelle est l'image de l'axe des r\'eels par $f$ ?
+\item Quelle est l'image de la droite  $y=2x$ par $f$ ?
+\end{enumerate}
+\end{enumerate}
+
+%\vspace*{-.5cm}
+\EXO
+%Le plan est muni d'un rep\`ere  orthonorm\'e direct $(O,\vect{u},\vect{v})$
+
+
+A tout point $M(z)$ du plan on associe le point $M'(z')$ tel que
+$z'=2\overline{z}+1.$
+
+On d\'efinit ainsi une fonction $f : {\cal P} \longrightarrow {\cal P}$ en posant pour tout point $M$ : $f(M)=M'$
+
+
+\begin{enumerate}
+%\item \underline{\bf Image - Ant\'ec\'edents}
+%\begin{enumerate}
+\item Quelle est l'image par $f$ de : $A(2i)$; $B\left(\frac{1-i}{2}\right)$ ?
+\item Quels sont les ant\'ec\'edents de : $C'(-1)$; $D'(-2)$ ; $E'(i)$ ?
+%\end{enumerate}
+
+%\item \underline{\bf Recherche de point(s) invariant(s)}
+
+\item D\'eterminer les points $M$ invariants par $f$.
+
+%\item \underline{\bf Image d'ensembles de points}
+%\begin{enumerate}
+\item Quelle est l'image de l'axe des r\'eels par $f$ ?
+\item Quelle est l'image de la droite  $y=2x$ par $f$ ?
+%\end{enumerate}
+\end{enumerate}
+
+
+
+% \EXO
+% Les formules suivantes sont-elles vraie ? D\'emontrer la r\'eponse
+% $$a) \ Re(z^2)=Re(z)^2 \ \ \ \ b)\ \overline{(\overline{\lambda} z)}=\lambda \bar{z}
+% \ \ \ \ \ c)\ (z-\bar{z})^2=-4\times  Re(z)^2 \ \ \ \ 
+% d)\ Im(z^2)=2Re(z)Im(z).$$
+
+
+%\newpage
+\section{Remarques sur le chapitre :}
+
+\begin{enumerate}
+\item Bien faire les exemples de mise sous forme alg\'ebrique y compris avec param\`etre.
+(carr\'e d'un somme, produits...)
+les exemples \`a faire dans le cours :
+$1+i-(3-i)$ $(2-i)(3+4i)$ $(iy)^2$ $(x+iy)(x-iy)$ $(3+\lambda i)^2$
+\item Faire figurer la forme alg\'ebrique en premier th\'eor\`eme.
+\end{enumerate}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Multiplication-Inverse }
+
+\subsection{Multiplication d'un complexe par un nombre r\'eel}
+
+\frameprop{}{
+Soit $z=a+ib$ un nombre complexe et $\lambda \in \R$.
+\begin{enumerate}
+\item  $\lambda z=\lambda a + i \lambda b$
+\item Si $\vect{u}$ est d'affixe $z$ alors $\lambda \vect{u}$ est d'affixe $\lambda z$
+\end{enumerate}
+}{}
+
+
+\frameprop{}{
+$A$, $B$ et $C$ trois points d'affixes $z_A,z_B$ et $z_C$. $\alpha, \beta, \gamma\in \R$
+
+Le barycentre $G$ des points pond\'er\'es $(A;\alpha)$, $(B;\beta)$ et $(C,\gamma)$ a pour affixe
+$$z_G=\frac{\alpha z_A+\beta z_B+\gamma z_C}{\alpha+\beta+\gamma}.$$
+}{}
+
+
+
+\subsection{Multiplication : cas g\'en\'eral}
+\frameprop{}{
+Si $z=a+ib$ et $z'=a'+ib'$ alors $zz'=(aa'-bb')+i(ab'+a'b)$
+}{\underline{Remarque }:
+
+On prolonge ici la multiplication dans $\R$ en ayant en m\'emoire que
+$i^2=-1$
+
+$(a+ib)(a'+ib')=aa'+aib'+iba'+i^2bb'=(aa'-bb')+i(ab'+a'b)$.
+}
+
+
+
+% \propriete{
+% Soit $\vect{OM}$ un vecteur d'affixe $z$, $\lambda\in \R$ alors le vecteur
+%  $\lambda\; \vect{OM}$ a pour affixe $\lambda z.$ 
+% }
+
+%\newpage
+
+\medskip
+\subsubsection{Inverse - Division de nombres complexes}
+
+\underline{Pr\'eliminaire}
+
+\propriete{
+Soit $z$ un nombre complexe alors $z\bar{z}\in \R$ et si $z=a+ib$ alors
+$$z\bar{z}=a^2+b^2$$
+}
+
+\underline{Preuve}
+$(a+ib)(a-ib)=a^2-(ib)^2=a^2-(-b^2)=a^2+b^2.$
+
+
+\propriete{
+\begin{enumerate}
+\item Tout nombre complexe non nul $z$ admet un inverse not\'e $\di \frac{1}{z}$, c'est \`a dire un  nombre complexe tel que $z\times \dfrac{1}{z}=1.$
+\item Si $z\neq 0$ son inverse est donn\'e sous forme alg\'ebrique par :
+ $$\frac{1}{z}=\frac{\overline z}{z\overline{z}}$$
+\end{enumerate}
+}
+
+
+\underline{Exemple}
+
+$\frac{1}{i-1}=......$
+
+\definition{
+si $z_2$ est un nombre complexe non nul alors on d\'efinit le quotient de $z_1$par $z_2$
+%
+$$\frac{z_1}{z_2}=z_1\times \frac{1}{z_2}.$$
+}
+
+
+\hfill {\bf Exercices : 5 et 6 de la feuille}
+
+
+\propriete{
+Soit $A,B,C,D$ quatre points distincts. On a $\vect{AB}$ colin\'eaire \`a $\vect{CD}$ si et seulement si
+%
+$$ \frac{z_B-z_A}{z_C-z_D}\in \R.$$
+}
+
+\underline{Preuve}
+
+$\vect{AB}$ colin\'eaire \`a $\vect{CD}$ est \'equivalent \`a $\vect{AB}=\lambda \vect{CD}$ avec $\lambda\in \R.$
+
+$\iff (z_b-z_a)=\lambda (z_c-z_D)\iff \frac{z_b-z_a}{z_c-z_d}=\lambda \in \R.$
+
+\hfill {\bf Exercice : 57,58,65 page 273}
+% \underline{M\'ethode }:
+% 
+% Pour d\'eterminer l'inverse d'un nombre complexe $z$, il suffit de
+% multiplier par le complexe conjugu\'e :
+% 
+% $$\di \frac{1}{z}=\frac{\overline z}{z \overline z}$$
+% 
+% Soit : $\di
+% \frac{1}{a+ib}=\frac{a-ib}{(a+ib)(a-ib)}=\frac{a-ib}{a^2+b^2}$.
+
+
+\newpage
+
+\subsection{Op\'erations et conjugu\'e }
+
+\propriete{
+Soit $z$ un nombre complexe alors :
+$$z+\bar{z}=2Re(z)\ \ \ \ z-\bar{z}=2i Im(z).$$
+}
+
+\propriete{
+$z$ et $z'$ sont deux nombres complexes et $n$ un entier naturel non
+nul, alors :
+\begin{itemize}
+\item $\overline{z+z'}=\overline{z}+\overline{z'}$
+\item $\overline{zz'}=\overline{z}\overline{z'}$
+\item $\overline{z^n}=\overline{z}^n$
+\item si $z$ diff\'erent de 0 alors $\di \overline{\left(\frac{z'}{z}\right)}=\frac{\overline{z'}}{\overline{z}}$.
+\end{itemize}
+}
+
+\underline{Exemple }
+
+\begin{enumerate}
+\item 
+$\overline{\left(\frac{(1+i)}{i-2}\right)}$
+%\end{enumerate}
+\item Soit $Z=(1+3i)^5$ et $Z'=(1-3i)^5$. D\'emontrer que $Z+Z'\in \R.$
+\end{enumerate}
+
+
+\section{\'Equations du second degr\'e et nombres complexes}
+
+\subsection{\'Equations $Z^2=a$ dans $\C$}
+\propriete{ soit $a\in \R$
+\begin{enumerate}
+\item Si $a>0$, l'\'equation $Z^2=a$ a deux solutions $\sqrt{a}$ et $-\sqrt{a}.$
+\item Si $a=0$, l'\'equation $Z^2=a$ a pour unique solution 0.
+\item Si $a<0$, l'\'equation $Z^2=a$ a deux solutions $i\sqrt{-a}$ et $-i\sqrt{-a}.$
+\end{enumerate}
+}
+
+
+\subsection{Forme canonique d'un trin\^ome du second degr\'e}
+
+Soit un trinome du second degr\'e $P(z)=a z^2+bz+c$ avec $a,b,c\in \R.$
+
+alors $P$ peut-être mis sous sa forme dite "canonique" :
+
+$$P(z)=a\left[\left(z-\frac{b}{2a}\right)^2- \frac{\Delta}{4a^2}\right]$$
+
+
+\subsection{Racines d'un trin\^ome du second degr\'e a coefficients r\'eels}
+\propriete{
+Soit un trinome du second degr\'e $P(z)=a z^2+bz+c$ avec $a,b,c\in \R.$
+
+\begin{enumerate}
+\item Si $\Delta > 0$ alors $P$ a deux racines r\'eelles distinctes
+$$x_1=\frac{-b-\sqrt{\Delta}}{2a}\ \ \ \ x_1=\frac{-b+\sqrt{\Delta}}{2a}$$
+\item Si $\Delta = 0$ alors $P$ a une unique racine r\'eelle $x_1=\frac{-b}{2a}$ 
+\item Si $\Delta > 0$ alors $P$ a deux racines complexes distinctes (mais conjugu\'ees l'une de l'autre)
+$$z_1=\frac{-b-i\sqrt{\Delta}}{2a}\ \ \ \ x_1=\frac{-b+i\sqrt{\Delta}}{2a}$$
+\end{enumerate}
+ }
+
+ \newpage
+ 
+{\it \underline{Preuve du th\'eor\`eme sur les racines du trin\^ome}: le cas $\Delta <0$}
+
+Soit un trin\^ome du second degr\'e
+$P(z)=az^2+bz+c.$
+On peut mettre $P$ sous sa forme canonique :
+$$P(z)=a\left[\left(z+\frac{b}{2a}\right)^2- \frac{\Delta}{4a^2}\right]$$
+
+si $\Delta <0$ on a $\Delta = \left(i\sqrt{\overset{}{-\Delta}}\right)^2$ et donc
+$$P(z)=a\left[\left(z+\frac{b}{2a}\right)^2- \frac{(i\sqrt{-\Delta})^2}{4a^2}\right]
+= a\left[\left(z+\frac{b}{2a}\right)^2- \left(\frac{(i\sqrt{-\Delta})}{2a}\right)^2\right]$$
+
+On peut alors factoriser $P(z)$ comme diff\'erence de deux carr\'es:
+$$P(z)=
+a\left[\left(z+\frac{b}{2a}\right)- \frac{(i\sqrt{-\Delta})}{2a}\right]
+\left[\left(z+\frac{b}{2a}\right)+ \frac{(i\sqrt{-\Delta})}{2a}\right]$$
+On en d\'eduit alors que $P(z)=0$ pour 
+$$z_1=\frac{-b-i\sqrt{-\Delta}}{2a}\ \ \textnormal{ ou } \ \ z_2=\frac{-b+i\sqrt{-\Delta}}{2a}$$
+
+
+
+%\vspace*{1cm}
+
+{\it \underline{Preuve du th\'eor\`eme sur les racines du trin\^ome}: le cas $\Delta <0$}
+
+Soit un trin\^ome du second degr\'e
+$P(z)=az^2+bz+c.$
+On peut mettre $P$ sous sa forme canonique :
+$$P(z)=a\left[\left(z+\frac{b}{2a}\right)^2- \frac{\Delta}{4a^2}\right]$$
+
+si $\Delta <0$ on a $\Delta = \left(i\sqrt{\overset{}{-\Delta}}\right)^2$ et donc
+$$P(z)=a\left[\left(z+\frac{b}{2a}\right)^2- \frac{(i\sqrt{-\Delta})^2}{4a^2}\right]
+= a\left[\left(z+\frac{b}{2a}\right)^2- \left(\frac{(i\sqrt{-\Delta})}{2a}\right)^2\right]$$
+
+On peut alors factoriser $P(z)$ comme diff\'erence de deux carr\'es:
+$$P(z)=
+a\left[\left(z+\frac{b}{2a}\right)- \frac{(i\sqrt{-\Delta})}{2a}\right]
+\left[\left(z+\frac{b}{2a}\right)+ \frac{(i\sqrt{-\Delta})}{2a}\right]$$
+On en d\'eduit alors que $P(z)=0$ pour 
+$$z_1=\frac{-b-i\sqrt{-\Delta}}{2a}\ \ \textnormal{ ou } \ \ z_2=\frac{-b+i\sqrt{-\Delta}}{2a}$$
+
+%\vspace*{1cm}
+
+{\it \underline{Preuve du th\'eor\`eme sur les racines du trin\^ome}: le cas $\Delta <0$}
+
+Soit un trin\^ome du second degr\'e
+$P(z)=az^2+bz+c.$
+On peut mettre $P$ sous sa forme canonique :
+$$P(z)=a\left[\left(z+\frac{b}{2a}\right)^2- \frac{\Delta}{4a^2}\right]$$
+
+si $\Delta <0$ on a $\Delta = \left(i\sqrt{\overset{}{-\Delta}}\right)^2$ et donc
+$$P(z)=a\left[\left(z+\frac{b}{2a}\right)^2- \frac{(i\sqrt{-\Delta})^2}{4a^2}\right]
+= a\left[\left(z+\frac{b}{2a}\right)^2- \left(\frac{(i\sqrt{-\Delta})}{2a}\right)^2\right]$$
+
+On peut alors factoriser $P(z)$ comme diff\'erence de deux carr\'es:
+$$P(z)=
+a\left[\left(z+\frac{b}{2a}\right)- \frac{(i\sqrt{-\Delta})}{2a}\right]
+\left[\left(z+\frac{b}{2a}\right)+ \frac{(i\sqrt{-\Delta})}{2a}\right]$$
+On en d\'eduit alors que $P(z)=0$ pour 
+$$z_1=\frac{-b-i\sqrt{-\Delta}}{2a}\ \ \textnormal{ ou } \ \ z_2=\frac{-b+i\sqrt{-\Delta}}{2a}$$
+
+
+\newpage
+
+\hfill {\bf Exercices : 23 a,b, 24 b, 29 a 30}
+
+\hfill {\bf 49 page 299} (param\`etre)
+%\vspace{.5cm}
+
+
+
+
+
+
+\newpage
+
+
+%\section{Exercices : Forme alg\'ebrique des nombres complexes}
+\shadowbox{\bf \Large Exercices : Forme alg\'ebrique des nombres complexes}
+
+\setcounter{EXOno}{0}
+%%\vspace*{-.6cm}
+\EXO \textit{(rappels de g\'eom\'etrie dans les rep\`eres)}
+
+On se place dans un rep\`ere du plan $(0;\vect{u},\vect{v}).$ On donne les points 
+$A(5;3)$, $B(2;7)$ et $C(-2;-3).$
+\begin{enumerate}
+\item D\'eterminer les coordonn\'ees du point $D$ tel que $ABCD$ soit un parall\'elogramme.
+\item D\'eterminer les coordonn\'ees du centre de gravit\'e de $ABCD.$
+\item D\'eterminer les coordonn\'ees de l'isobarycentre des points $ABC.$
+\end{enumerate}
+
+%\vspace*{-.6cm}
+\EXO \textit{(Repr\'esenter des nombres complexes dans le plan complexe)}
+
+\begin{enumerate}
+\item Dans le plan complexe, placer  les points $M_n$ d'affixe $i^n$ pour $n\in \N.$
+\item Placer successivement les points d'affixe : $-3$,\ \ $2-i$,\ \ $-1-2i$,\ \ $1+i\times i$,\ \ $2i-3.$
+\item Repr\'esenter les points $M$ d'affixe $z_M$ du plan complexe tels que :
+\begin{enumerate}
+\item $Re(z_M)=3$
+\item $Im(z_M)=-2$
+\item $Im(z_M)=2Re(z_M)+1$
+\end{enumerate} 
+\end{enumerate}
+
+%\vspace*{-.6cm}
+\EXO \textit{(\'Egalit\'e de nombres complexes)}
+
+D\'eterminer dans chaque cas l'ensemble des points $M$ du plan dont l'affixe est $z=x+iy$
+\begin{enumerate}
+\item $(x+y)+i(x-y+3)=0$
+\item $i(x-y)+(2x)=1-i$
+\item $Re(z+1)=0.$
+\end{enumerate}
+
+
+%\vspace*{1.5cm}
+
+
+
+%\section{Exercices : Forme alg\'ebrique des nombres complexes}
+\shadowbox{\bf \Large Exercices : Forme alg\'ebrique des nombres complexes}
+
+\setcounter{EXOno}{0}
+%%\vspace*{-.6cm}
+\EXO \textit{(rappels de g\'eom\'etrie dans les rep\`eres)}
+On se place dans un rep\`ere du plan $(0;\vect{u},\vect{v}).$ On donne les points 
+$A(5;3)$, $B(2;7)$ et $C(-2;-3).$
+\begin{enumerate}
+\item D\'eterminer les coordonn\'ees du point $D$ tel que $ABCD$ soit un parall\'elogramme.
+\item D\'eterminer les coordonn\'ees du centre de gravit\'e de $ABCD.$
+\item D\'eterminer les coordonn\'ees de l'isobarycentre des points $ABC.$
+\end{enumerate}
+
+%\vspace*{-.6cm}
+\EXO \textit{(Repr\'esenter des nombres complexes dans le plan complexe)}
+
+\begin{enumerate}
+\item Dans le plan complexe, placer les  points $M_n$ d'affixe $i^n$ pour $n\in \N.$
+\item Placer successivement les points d'affixe : $-3$,\ \ $2-i$,\ \ $-1-2i$,\ \ $1+i\times i$,\ \ $2i-3.$
+\item Repr\'esenter les points $M$ d'affixe $z_M$ du plan complexe tels que :
+\begin{enumerate}
+\item $Re(z_M)=3$
+\item $Im(z_M)=-2$
+\item $Im(z_M)=2Re(z_M)+1$
+\end{enumerate} 
+\end{enumerate}
+
+%\vspace*{-.6cm}
+\EXO \textit{(\'Egalit\'e de nombres complexes)}
+
+D\'eterminer dans chaque cas l'ensemble des points $M$ du plan dont l'affixe est $z=x+iy$
+\begin{enumerate}
+\item $(x+y)+i(x-y+3)=0$
+\item $i(x-y)+(2x)=1-i$
+\item $Re(z+1)=0.$
+\end{enumerate}
+
+
+\setcounter{EXOno}{0}
+
+
+\newpage
+
+\large
+
+\shadowbox{\bf \Large Forme alg\'ebrique des nombres complexes II}
+
+%\vspace*{-.6cm}
+\EXO %(\textit{propriete 9} )
+
+Soit $x,y$ deux nombres r\'eels et $z$ le complexe definis par $z=(x+y)^2+i(x-y)$
+\begin{enumerate}
+\item Placer les points $M$ d'affixe $z$ pour $y=2$ et $x=0.$
+\item D\'eterminer l'ensemble des $(x,y)$ tels que $z\in \R$
+\item D\'eterminer l'ensemble des $(x,y)$ tels que $z$ est imaginaire pur.
+\item D\'eterminer les couples $(x,y)$ tels que $z=0.$
+\end{enumerate}
+
+% \EXO (\textit{Conjugu\'e-Oppos\'e})
+% \begin{enumerate}
+% \item D\'eterminer les points $M$ d'affixe $z$ du plan tels que :
+% $$ a)\ z=-z,\ \ \ \ b)\ z=\bar{z}$$
+% \item D\'emontrer la propri\'et\'e : "Un nombre complexe $z$ est imaginaire pur si et seulement si $\bar{z}=-z$."
+% \item D\'eterminer puis repr\'esenter, l'ensemble des point $M$ d'affixe $z$ tels que $z\bar{z}=1.$
+% \end{enumerate}
+
+% \EXO (\textit{Repr\'esentation des nombres complexes})
+% 
+% Une figure \`a l'aide de laquelle on doit d\'eterminer : partie r\'eelle, partie imaginaire, module, oppos\'e, conjugu\'e, +
+%  vecteurs, vecteurs tourn\'es de $\pi/2$
+
+
+
+%\vspace*{-.6cm}
+\EXO (\textit{Oppos\'es- Conjugu\'es})
+
+Soit $z=-3+4i.$
+\begin{enumerate}
+\item Dans le plan complexe, placer  $A,\ B,\ C$ d'affixes $z, \bar{z}$ et $-z.$
+\item D\'eterminer l'affixe du point $M$ tel que $ABCM$ soit un parall\'elogramme.
+\item Soit $z=a + ib$ avec $a,b\in \R$ un nombre complexe. D\'emontrer que les points $A(z)$, $B(\bar{z})$,
+$C(-z)$ et $D(-\bar{z})$ forment un parall\'elogramme.
+\end{enumerate}
+
+
+
+%\vspace*{-.6cm}
+\EXO 
+
+Soit $z_1=1-i$ et $z_2=ti-2$ avec $t\in \R.$
+\begin{enumerate}
+\item Le plan complexe est muni d'un rep\`ere orthonorm\'e $(O;\vect{u},\vect{v}).$ Placer les points d'affixe $z_1$ et $z_2$ pour $t=\frac{5}{2}.$
+\item Calculer en fonction de $t$ : $z_1+z_2$, $z_1-z_2$, $z_1+\bar{z}_2$
+\item Soit $M_1$ et $M_2$ les points d'affixes $z_1$ et $z_2$. D\'eterminer $t$ pour que
+$(M_1M_2)$ soit parall\`ele \`a l'axe des r\'eels.
+\end{enumerate}
+
+%\vspace*{-.6cm}
+\EXO \textit{(Nombres complexes et barycentres)}
+
+$A,\ B$ et $C$ trois points d'affixes respectives $(1+2i), \ -1$ et $2-2i.$
+
+\begin{enumerate}
+\item D\'eterminer l'affixe $z_G$ du point $G$ barycentre de $(A,1)$, $(B,1)$ et $(C,1).$
+\item Si $m\in \R - \{-2\}$ d\'eterminer l'affixe $z_{G_m}$ de $G_m$ barycentre de 
+$(A,1)$, $(B,1)$ et $(C,m).$
+\item Que peut-on dire de $G_m$ quand $m=0$ ?
+\item Soit $I$ le milieu de $[AB]$. D\'emontrer de deux façons que 
+$\di z_{G_m}-z_I=\frac{m}{m+2}(z_C-z_I).$ 
+% que l'ensemble des points $G_m$ quand $m$ d\'ecrit $\R$ est la droite $(CI)$ priv\'ee du point $C.$
+\end{enumerate}
+
+%\vspace*{-.6cm} 
+\EXO (\textit{Multiplications et quotients avec les nombres complexes})
+\begin{enumerate}
+\item Mettre sous forme alg\'ebrique les nombres complexes suivants :
+$$ A=i(5+i)^2,\ \ \ \ B=(1+i)^4\ \ \ \ 
+C_\lambda =(\lambda i)^2-(1+\lambda i)(i-\lambda)$$
+\item Mettre sous forme alg\'ebrique les nombres complexes suivants :
+$$A=\frac{1}{1+i},\ \  \  \ B=\frac{1-i}{1+i},\ \ \ \ C=\frac{3}{i},\ \ \  \ D=\frac{-3-i}{2-i}$$ 
+\end{enumerate}
+
+%\vspace*{-.6cm}
+\EXO \textit{(\'Equations avec des nombres complexes)}
+\begin{enumerate}
+\item Soit la fonction de $\C$ dans $\C$ d\'efinie par $f(z)=3iz+13-9i.$
+\begin{enumerate}
+\item Mettre $f(2i)$ sous forme alg\'ebrique.
+\item R\'esoudre dans $\C$ l'\'equation $f(z)=0$ (on donnera le r\'esultat sous forme alg\'ebrique).
+\item R\'esoudre dans $\C$ l'\'equation $f(z)=z$ (on donnera le r\'esultat sous forme alg\'ebrique).
+\end{enumerate}
+\item R\'esoudre dans $\C$ le syst\`eme suivant
+$
+\left\lbrace
+\begin{array}{ccccl}
+iz_1&-&z_2&=&1\\
+-z_1&+&iz_2&=&0\\
+\end{array}\right.
+$
+\end{enumerate} 
+
+%\EXO \textit{(Utilisation des nombres complexes en g\'eom\'etrie)}
+
+
+
+\newpage
+
+\shadowbox{\bf \large Nombres complexes : Exercice III}
+
+
+
+\setcounter{EXOno}{0}
+
+%\vspace{-.6cm}
+\EXO
+
+Les formules suivantes sont-elles vraie ? D\'emontrer la r\'eponse
+$$a) \ Re(z^2)=Re(z)^2 \ \ \ \ b)\ \overline{(\overline{\lambda} z)}=\lambda \bar{z}
+\ \ \ \ \ c)\ (z-\bar{z})^2=-4\times  Re(z)^2 \ \ \ \ 
+d)\ Im(z^2)=2Re(z)Im(z).$$
+
+
+%\vspace{-.6cm}
+\EXO
+
+Soit $m=\alpha +i\beta$ un nombre complexe.% tel que $\alpha\neq 0$ et $\beta\neq 0.$
+Le but est de d\'eterminer l'ensemble des points $M$ d'affixe $z$ tels que
+$$z^2-m^2=\bar{z}^2-\bar{m}^2.$$
+
+On note $E$ cet ensemble.
+
+\begin{enumerate}
+\item D\'emontrer que $M\in E$ \'equivaut \`a $z^2-m^2\in \R$.
+%\item D\'emontrer que que pour tout $Z,Z'\in \C$, $Z-Z'\in R$ \'equivaut \`a $Im(Z)=Im(Z').$
+\item On se place dans le cas $m=1+i$. D\'emontrer que $M$ d'affixe $x+iy$ est  dans $E$ 
+si et seulement si $M$ est sur une courbe dont on donnera une \'equation.
+
+\end{enumerate}
+
+
+%\vspace{-.6cm}
+\EXO
+
+Le plan complexe rapport\'e \`a un rep\`ere orthonorm\'e direct (O;
+$\vec{u}$, $\vec{v}$).
+
+On consid\`ere les quatre points $A$, $B$, $C$ et
+$D$ d'affixes respectives : 3, $4i$, $-2+3i$ et $1-i$.
+
+\begin{enumerate}
+\item
+\begin{itemize}
+\item [a)] Placer les points $A$, $B$, $C$ et $D$.
+\item [b)] Quelle est la nature du quadrilat\`ere $ABCD$ ? Justifier
+  votre r\'eponse.
+\end{itemize}
+\item On consid\`ere les \'equations : $z^2 - (1+3i)z-6+9i=0$ (1) et
+  $z^2-(1+3i)z+4+4i=0$ (2).
+\begin{itemize}
+\item [a)] D\'emontrer que l'\'equation (1) admet une solution r\'eelle
+  $z_1$ et l'\'equation (2) une solution imaginaire pur $z_2$.
+\item [b)] D\'evelopper $(z-3)(z+2-3i)$ puis $(z-4i)(z-1+i)$.
+\item [c)] En d\'eduire les solutions de l'\'equation :
+  $(z^2-(1+3i)z-6+9i)(z^2-(1+3i)z+4+4i)=0$.
+\end{itemize}
+\end{enumerate}
+
+
+
+%\vspace*{1cm}
+
+
+
+
+\setcounter{EXOno}{0}
+
+\shadowbox{\bf \large Nombres complexes : Exercice III}
+%\vspace{-.6cm}
+\EXO
+
+Les formules suivantes sont-elles vraie ? D\'emontrer la r\'eponse
+$$a) \ Re(z^2)=Re(z)^2 \ \ \ \ b)\ \overline{(\overline{\lambda} z)}=\lambda \bar{z}
+\ \ \ \ \ c)\ (z-\bar{z})^2=-4\times  Re(z)^2 \ \ \ \ 
+d)\ Im(z^2)=2Re(z)Im(z).$$
+
+
+%\vspace{-.6cm}
+\EXO
+
+Soit $m=\alpha +i\beta$ un nombre complexe.% tel que $\alpha\neq 0$ et $\beta\neq 0.$
+Le but est de d\'eterminer l'ensemble des points $M$ d'affixe $z$ tels que
+$$z^2-m^2=\bar{z}^2-\bar{m}^2.$$
+
+On note $E$ cet ensemble.
+
+\begin{enumerate}
+\item D\'emontrer que $M\in E$ \'equivaut \`a $z^2-m^2\in \R$.
+%\item D\'emontrer que que pour tout $Z,Z'\in \C$, $Z-Z'\in R$ \'equivaut \`a $Im(Z)=Im(Z').$
+\item On se place dans le cas $m=1+i$. D\'emontrer que $M$ d'affixe $x+iy$ est  dans $E$ 
+si et seulement si $M$ est sur une courbe dont on donnera une \'equation.
+
+\end{enumerate}
+
+
+%\vspace{-.6cm}
+\EXO
+
+Le plan complexe rapport\'e \`a un rep\`ere orthonorm\'e direct (O;
+$\vec{u}$, $\vec{v}$).
+
+On consid\`ere les quatre points $A$, $B$, $C$ et
+$D$ d'affixes respectives : 3, $4i$, $-2+3i$ et $1-i$.
+
+\begin{enumerate}
+\item
+\begin{itemize}
+\item [a)] Placer les points $A$, $B$, $C$ et $D$.
+\item [b)] Quelle est la nature du quadrilat\`ere $ABCD$ ? Justifier
+  votre r\'eponse.
+\end{itemize}
+\item On consid\`ere les \'equations : $z^2 - (1+3i)z-6+9i=0$ (1) et
+  $z^2-(1+3i)z+4+4i=0$ (2).
+\begin{itemize}
+\item [a)] D\'emontrer que l'\'equation (1) admet une solution r\'eelle
+  $z_1$ et l'\'equation (2) une solution imaginaire pur $z_2$.
+\item [b)] D\'evelopper $(z-3)(z+2-3i)$ puis $(z-4i)(z-1+i)$.
+\item [c)] En d\'eduire les solutions de l'\'equation :
+  $(z^2-(1+3i)z-6+9i)(z^2-(1+3i)z+4+4i)=0$.
+\end{itemize}
+\end{enumerate}
+
+\newpage
+
+\setcounter{EXOno}{0}
+
+\section{Devoir libre 4}
+
+\begin{center}
+\shadowbox{\bf \Large Devoir libre 4}
+\end{center}
+
+
+%\vspace*{-.6cm}
+\EXO \textit{(Retour sur le th\'eor\`eme des valeurs interm\'ediaires.)}
+
+Dans cet exercice, on s'int\'eresse \`a une fonction $f$ inconnue satisfaisant les hypoth\`eses:
+
+\textbf{(H1)}
+$f$ est d\'efinie et continue sur $[0;1]$.
+
+\textbf{(H1)}
+Les valeurs de $f(x)$ restent dans l'intervalle $[0;1].$
+
+\begin{enumerate}
+\item Approche intuitive.
+\begin{enumerate}
+\item Sur un même graphique, tracer la droite $y=x$ puis une courbe possible de $f.$
+\item Que pensez-vous de l'\'equation $f(x)=x$ ?
+\end{enumerate}
+
+\item Justification th\'eorique : on introduit la fonction $g(x)=f(x)-x.$
+\begin{enumerate}
+\item Justifier que $g$ est continue sur $[0;1].$
+\item En \'etudiant le signe de $g(0)$ et $g(1)$ d\'emontrer que l'\'equation $f(x)=x$ a au moins une solution.
+\end{enumerate}
+\item Donner un exemple d'une fonction $f$ satisfaisant les hypoth\`eses {\bf (H1)} et {\bf (H2)} et telle que $f(x)=x$ a deux solutions.
+
+\end{enumerate}
+
+
+%\vspace*{-.6cm}
+\EXO
+
+Soit la fonction $g$ d\'efinie par $g(t)=\di \frac{3e^{t/4}}{2+e^{t/4}}.$
+
+\begin{enumerate}
+\item Justifier que $g(t)$ est d\'efinie pour tout $t\in\R$
+\item D\'emontrer que $\di g(t)=\frac{3}{1+2e^{-t/4}}$ pour tout $t\in \R.$
+\item Justifier que $g$ est d\'erivable et dresser le tableau de variation complet de $g.$ (limites aux deux infinis comprises)
+\end{enumerate}
+
+%\vspace*{-.6cm}
+\EXO
+Dans chacun des cas suivants, donner un exemple de fonction possible sous forme graphique puis sous forme d'une expression en $x$:
+\begin{enumerate}
+\item Une fonction $f$ d\'efinie sur $\R$ qui est toujours positive mais dont la d\'eriv\'ee change de signe.
+\item Une fonction $g$ d\'efinie sur $\R$ qui est positive mais d\'ecroissante.
+\item Une fonction $h$ d\'efinie sur $\R$ telle que $h'(x)>0$ pour tout $x\in \R$ et 
+$\di\lim_{x\to +\infty}h(x)=2$
+\end{enumerate}
+
+
+%\vspace*{-.6cm}
+\EXO
+
+Le plan complexe est rapport\'e \`a un rep\`ere orthonormal direct (O ;
+$\vec{u}$, $\vec{v}$). (unit\'e graphique 2 cm)
+
+On consid\`ere le point $A$ d'affixe 4. On note $d$ la droite d'\'equation
+$x=4$, priv\'ee du point $A$. $K$ est le point d'affixe $1.$ %et $L$ le point d'affixe $-1.$ 
+
+\`A tout point $M$, diff\'erent de $A$, d'affixe $z$, on associe le point
+$M'$ d'affixe $z'$ tel que $\di z'=f(z)=\frac{z-4}{4- \overline z}$.
+
+\begin{enumerate}
+\item Soit $B$ le point d'affixe $1+3i$.
+
+D\'eterminer l'affixe du point $B'$ associ\'e au point $B$. Placer les
+points $B$ et $B'$ sur une figure.
+
+\item Soit $x$ un nombre r\'eel diff\'erent de 4. On note $R$ le point
+  d'affixe $x$.
+  \begin{enumerate}
+    \item D\'eterminer l'affixe du point $R'$ associ\'e au point $R$. 
+     
+     \item Repr\'esenter  l'ensemble des points $R$ et l'ensemble des points $R'.$
+   \end{enumerate}
+
+   \item 
+   \begin{enumerate}
+\item  Soit $S$ un point de
+  $d$, d\'eterminer l'affixe du point $S'$ associ\'e \`a $S$.
+
+\item  D\'emontrer que $f(z)=1$ \'equivaut \`a $M \in d$.
+\end{enumerate}
+\item Soit $M$ un point n'appartenant pas \`a $d$ et diff\'erent de $A$.
+
+% On se propose de d\'eterminer une m\'ethode de construction du point $M'$
+% connaissant le point $M$.
+% \begin{itemize}
+% \item [a)] D\'emontrer que, pour tout nombre complexe $z$ diff\'erent de
+%   4, $\vert z' \vert=1$.
+\begin{enumerate}
+\item D\'emontrer que pour tout nombre complexe $z$ diff\'erent de 4
+  : $\di \frac{z'-1}{z-4} \in \R$.
+
+\item D\'emontrer que la droite ($KM'$) est bien d\'efinie et parall\`ele \`a la
+droite ($AM$).
+\end{enumerate}
+\end{enumerate}
+
+% Appliquer cette m\'ethode \`a la construction du point $C'$ associ\'e au
+% point $C$ d'affixe $2+i$.
+% \end{itemize}
+%\end{enumerate}
+
+
+\newpage
+
+{\small  
+%\section{Corrig\'e du DL}
+\shadowbox{\bf \large Corrig\'e du Devoir Libre 4}
+\setcounter{EXOno}{0}
+
+%\vspace*{-.6cm}
+\EXO
+\begin{enumerate}
+\item[2.]\begin{enumerate}
+\item[(a)]. $g$ est la diff\'erence de deux fonctions continues sur $[0;1]$ ($f$ \`a cause de {\bf H1} et $x\mapsto x$ d'apr\`es le cours), donc $g$ est continue sur $[0;1].$
+\item[(b)] 
+On remarque que l'\'equation $f(x)=x$ \'equivaut \`a $f(x)-x=0$ c'est \`a dire $g(x)=0.$
+
+On a $g(0)=f(0)-0=f(0).$ Or $f(x)\in [0;1]$ pour tout $x.$ En particulier, $f(0)\geq 0.$
+
+On a $g(1)=f(1)-1$ 
+Or $f(x)\in [0;1]$ pour tout $x.$ En particulier, $f(1)\leq 1$ et donc
+$g(1)=f(1)-1\leq 0.$
+
+$g$ est continue sur $[0;1]$ avec $g(0)\leq 0 leq  g(1)$. D'apr\`es le Th\'eor\`eme des valeurs interm\'ediaires, toute valeur entre  $g(0)$ et $g(1)$ a un ant\'ec\'edent.
+
+Donc, il existe un $x_0\in [0;1]$ tel que $g(x_0)=0.$ Ce qui \'equivaut \`a $f(x_0)=x_0.$
+
+\end{enumerate}
+\item[3.] La fonction $f : x\mapsto x^2$ est continue sur $[0;1]$ et croissante sur cet intervalle. On a $f(0)=0$ et $f(1)=1$. Donc $f(x)\in [0;1]$ pour $x\in [0;1].$
+
+$f$ remplie les conditions {\bf (H1)} et {\bf (H2)} et on a deux solutions pour $f(x)=x$ : 0
+et 1.
+\end{enumerate}
+
+
+%\vspace*{-.6cm}
+\EXO
+\begin{enumerate}
+\item $g$ est d\'efinie pour les valeurs de $t$ telles que $2+e^{t/4}\neq 0.$
+
+Or $2+e^{t/4}= 0 \iff e^{t/4}= -2$ qui n'a pas de solution car $e^X>0$ pour tout $X\in\R. $ 
+\item $$g(t)=\di \frac{3e^{t/4}}{2+e^{t/4}}=
+\frac{3e^{t/4}\times e^{-t/4}}{(2+e^{t/4})\times e^{-t/4}}=\frac{3\times 1}
+{2e^{-t/4}+ e^{t/4}e^{-t/4}}=\frac{3}
+{2e^{-t/4}+ 1}$$
+\item $t\mapsto 2+ e^{t/4}$ est d\'erivable sur $\R$ comme compos\'ee puis somme de fonctions d\'erivables sur $\R.$ De plus elle ne s'annule pas. $t\mapsto e^{t/4}$ est d\'erivable sur $\R$
+(compos\'ee). Donc par quotient, $g$ est d\'erivable sur $\R.$
+
+Pour le calcul, on utilise la deuxi\`eme formule en posant $\di g(t)=3\times \frac{1}{u(t)}$ et $u(t)=1+2e^{-t/4}=1+2e^{(-1/4)\times t}.$
+
+On a alors $\di u'(t)=2\times \frac{-1}{4}e^{-t/4}=\frac{-1}{2}e^{-t/4}$
+$$g'(t)=3\times \frac{-u'(t)}{u(t)^2}=3\times \frac{-\left(\frac{-1}{2}e^{-t/4}\right)}{(1+2e^{-t/4})^2}
+=\frac{+3}{2}\times \frac{e^{-t/4}}{(1+2e^{-t/4})^2}$$
+
+$e^{-t/4}>0$ pour toute valeur de $t\in \R.$
+
+$(1+2e^{-t/4})^2>0$ pour toute valeur de $t\in \R$ (carr\'e d'une quantit\'e strictement positive.)
+
+Donc $g'(t)>0$ pour toute valeur de $t\in \R$ et $g$ est donc strictement croissante sur $\R.$
+
+\underline{Limite en $+\infty$}
+
+$\di\lim_{t\to +\infty}e^{-t/4}=0$ par composition (\`a faire) et donc 
+$\di\lim_{t\to +\infty}(1+2e^{-t/4})=1.$ Par quotient, $\di\lim_{t\to +\infty} g(t)=3.$
+
+\underline{Limite en $-\infty$}
+
+$\di\lim_{t\to -\infty}e^{-t/4}=+\infty$ par composition (\`a faire) et donc 
+$\di\lim_{t\to +\infty}(1+2e^{-t/4})=+\infty.$ Par quotient, $\di\lim_{t\to +\infty} g(t)=0.$
+
+
+
+\end{enumerate}
+
+%\vspace*{-.6cm}
+\EXO
+
+\begin{enumerate}
+\item $$f(1+3i)=\frac{1+3i-4}{4-(1-3i)}=\frac{-3+3i}{3+3i)}=\frac{-1+i}{1+i}
+=\frac{(-1+i)(1-i)}{(1+i)(1-i)}=\frac{2i}{2}=i.$$
+\item \begin{enumerate}
+\item $\di f(x)=\frac{x-4}{4-\bar{x}}=\frac{x-4}{4-{x}}$ car $x\in \R$ et donc $\bar{x}=x.$
+Donc $\di f(x)=-\frac{4-x}{4-{x}}=-1.$
+
+(ce qui veut dire que la fonction $f$ transforme l'axe des r\'eels en 1 point !.)
+\end{enumerate}
+\begin{enumerate}
+\item $S\in d$ donc son affixe est de la forme $z=4+iy$, l'affixe de $S'$ est donc :
+$$f(4+iy)=\frac{4+iy-4}{4-(4-iy)}=\frac{iy}{iy}=1.$$
+\item  $$f(z)=1\Longleftrightarrow \frac{z-4}{4-\bar{z}}=1 \Longleftrightarrow
+z-4=4-\bar{z} $$
+pour $z\neq 4.$
+
+Donc $$f(z)=1\Longleftrightarrow z+\bar{z}=8 \Longleftrightarrow 2Re(z)=8\Longleftrightarrow Re(z)=4$$
+et $z\neq 4.$
+
+Ce qui donne bien que le point $M$ d'affixe $z$ est sur $d.$
+\end{enumerate}
+\item \begin{enumerate}
+\item $$\frac{z'-4}{z-4}=\frac{\frac{z-4}{4-\bar{z}}-1}{z-4}
+= \frac{\frac{(z-4)-(4-\bar{z})}{4-\bar{z}}}{z-4}
+=\frac{(z-4)-(4-\bar{z})}{(4-\bar{z})(z-4)}=\frac{z + \bar{z}-8}{-|z-4|^2}.$$
+
+En effet $(4-\bar{z})=-(\bar{z}-4)=-\overline{(z-4)}$ par les r\`egles sur la conjugaison.
+
+Finalement
+
+$\di \frac{z'-4}{z-4}=\frac{2Re(z)-8}{-|z-4|^2} $ qui appartient \`a $\R$ car $-|z-4|^2$ est un r\'eel et $2Re(z)-8$ aussi.
+
+\item L'affixe du vecteur $\vect{KM'}$ est $z'-1$ et celle du vecteur $\vect{AM}$ est $z-4.$
+La question pr\'ec\'edente prouve  que $(z'-1)=\lambda (z-4)$ avec $\lambda \in \R$, c'est \`a dire
+que $\vect{KM'}=\lambda \vect{AM}.$ Les vecteurs $\vect{KM'}$ et $\vect{AM}$ sont colin\'eaire et donc les droites $(KM')$ et $(AM)$ sont parall\`eles.
+\end{enumerate}
+\end{enumerate}
+}
+
+\newpage
+
+\section{Autres exercices}
+
+\EXO
+
+Le plan complexe rapport\'e \`a un rep\`ere orthonorm\'e direct (O;
+$\vec{u}$, $\vec{v}$).
+
+On consid\`ere les quatre points $A$, $B$, $C$ et
+$D$ d'affixes respectives : 3, $4i$, $-2+3i$ et $1-i$.
+
+\begin{enumerate}
+\item
+\begin{itemize}
+\item [a)] Placer les points $A$, $B$, $C$ et $D$.
+\item [b)] Quelle est la nature du quadrilat\`ere $ABCD$ ? Justifier
+  votre r\'eponse.
+\end{itemize}
+\item On consid\`ere les \'equations : $z^2 - (1+3i)z-6+9i=0$ (1) et
+  $z^2-(1+3i)z+4+4i=0$ (2).
+\begin{itemize}
+\item [a)] D\'emontrer que l'\'equation (1) admet une solution r\'eelle
+  $z_1$ et l'\'equation (2) une solution imaginaire pur $z_2$.
+\item [b)] D\'evelopper $(z-3)(z+2-3i)$ puis $(z-4i)(z-1+i)$.
+\item [c)] En d\'eduire les solutions de l'\'equation :
+  $(z^2-(1+3i)z-6+9i)(z^2-(1+3i)z+4+4i)=0$.
+\item [d)] Soit $z_0$ la solution dont la partie imaginaire est
+  strictement n\'egative. Donner la forme trigonom\'etrique de $z_0$.
+\item [e)] D\'eterminer les entiers naturels $n$ tels que les points
+  $M_n$ d'affixe $z_0^n$ soit sur le droite d'\'equation $y=x$.
+\end{itemize}
+\end{enumerate}
+
+
+\begin{center}
+\includegraphics[scale=2]{complexestrigo.1}
+\end{center}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\underline{\bf III Modules et Arguments d'un nombre complexe }:
+
+%\vspace{.3cm}
+
+Ce paragraphe utilise le lien entre les coordonn\'ees cart\'esiennes et les
+coordonn\'ees polaires vues en 1S.
+
+\begin{enumerate}
+
+\item \underline{Module d'un nombre complexe }:
+
+\begin{tabular}{p{.5cm}||p{15cm}}
+&
+Soit $z$ un nombre complexe de forme alg\'ebrique $a+ib$. {\bf Le module} de
+$z$ est le nombre r\'eel positif not\'e $\vert z \vert$ et d\'efini par
+$\vert z \vert = \sqrt{a^2+b^2}$.
+\end{tabular}
+
+\underline{Interpr\'etation g\'eom\'etrique }:
+
+Dans le plan complexe, si $M$ a pour affixe $z$ alors $OM=\vert z
+\vert$.
+
+On retrouve ici le nombre $r$ des coordonn\'ees polaires.
+
+\underline{Remarque }:
+
+On a : $\vert z \vert^2=z\overline{z}$.
+
+
+\item \underline{Arguments d'un nombre complexe }:
+
+\underline{D\'efinition }:
+
+\begin{tabular}{p{.5cm}||p{15cm}}
+&
+Dans le plan complexe, $M$ est le point d'affixe $z$. On appelle
+{\bf argument} de $z$, not\'e arg($z$) toute mesure en radian de l'angle orient\'e
+($\vec{u}$ ; $\vec{OM}$).
+\end{tabular}
+
+\underline{Remarque }:
+
+On retrouve ici le nombre $\theta$ des coordonn\'ees polaires.
+
+\item \underline{Forme trigonom\'etrique d'un nombre complexe }:
+
+\underline{D\'efinition }:
+
+\begin{tabular}{p{.5cm}||p{15cm}}
+&
+Soit $z$ un nombre complexe non nul. {\bf La forme trigonom\'etrique} du
+complexe $z$ est l'\'ecriture :
+\begin{center}
+ $z=r(cos \theta+i sin \theta)$ avec
+$r=\vert z \vert$ et $\theta$ = arg$z$.
+\end{center} 
+\end{tabular}
+
+\underline{Propri\'et\'e }:
+
+\begin{tabular}{p{.5cm}||p{15cm}}
+&
+Deux nombres complexes non nuls sont \'egaux si et seulement si ils ont
+même module et même argument \`a $2k\pi$ pr\`es ($k \in \Z$).
+\end{tabular}
+
+\item \underline{Propri\'et\'es du module et des arguments }:
+
+\begin{tabular}{p{.5cm}||p{15cm}}
+&
+Pour tout nombre complexe non nul, on a :
+\begin{itemize}
+\item $\vert \overline z \vert= \vert z \vert$ et arg($\overline z$) =
+  -arg($z$).
+\item $\vert -z \vert= \vert z \vert$ et arg($-z$) = arg($z$) + $\pi$.
+\item $z \in \R$ \'equivaut \`a arg($z$) = 0 ou arg($z$) = $\pi$.
+\item $z$ imaginaire pur \'equivaut \`a arg($z$) = $\di \frac{\pi}{2}$ ou
+  $\di -\frac{\pi}{2}$.
+\item $\vert zz' \vert= \vert z \vert \vert z' \vert$ et
+  arg($zz'$)=arg($z$)+arg($z'$).
+\item $\forall n \in \N^*$, $\vert z^n \vert= \vert z \vert^n$ et arg($z^n$)=$n$arg($z$).
+\end{itemize}
+\end{tabular}
+
+\end{enumerate}
+
+%\vspace{.8cm}
+\underline{\bf IV La notation exponentielle }:
+\begin{enumerate}
+\item \underline{Lien avec la fonction exponentielle }:
+
+Soit $f$ la fonction d\'efinie sur $\R$ et \`a valeurs dans $\C$ par :
+$f(\theta)=cos(\theta)+isin(\theta)$.
+
+On sait d'apr\`es la propri\'et\'e pr\'ec\'edente que $zz'$ a pour argument
+arg($z$)+arg($z'$).
+
+Si on consid\`ere les nombres complexes $f(\theta + \theta')$ et
+$f(\theta)f(\theta')$, ils sont tous les deux de module 1 et d'argument
+$\theta + \theta'$. Ils sont donc \'egaux soit $f(\theta +
+\theta')=f(\theta)f(\theta')$.
+
+De plus $f'(\theta)=-in \theta + icos \theta = i(isin \theta + cos
+\theta) = if(\theta)$.
+
+\underline{Notation }:
+
+\begin{tabular}{p{.5cm}||p{15cm}}
+&
+On peut donc noter : $e^{i \theta} = cos \theta + i sin \theta$.
+\end{tabular}
+
+\underline{Propri\'et\'e }:
+
+\begin{tabular}{p{.5cm}||p{15cm}}
+&
+Pour tous r\'eels $\theta$ et $\theta'$ et tout entier naturel non nul
+$n$ :
+
+$\vert e^{i\theta} \vert=1$ et arg($e^{i\theta}$)=$\theta$.
+
+$e^{i\theta}e^{i\theta'} = e^{i(\theta + \theta')}$ idem pour le
+quotient.
+
+$\overline{e^{i\theta}} = e^{-i\theta}$.
+
+Formule de Moivre : $(e^{i\theta})^n = e^{in\theta}$
+\end{tabular}
+
+\item \underline{\'Ecriture exponentielle }:
+
+\underline{Propri\'et\'e }:
+
+\begin{tabular}{p{.5cm}||p{15cm}}
+&
+Soit $z$ un nombre complexe non nul. 
+
+L'\'ecriture $z=re^{i\theta}$ avec
+$r=\vert z \vert$ et $\theta$=arg($z$) est appel\'ee {\bf forme
+  exponentielle} de $z$.
+\end{tabular}
+
+
+\item \underline{Les transformations du plan }:
+
+\underline{Propri\'et\'e }:
+
+\begin{tabular}{p{.5cm}||p{15cm}}
+&
+\begin{itemize}
+\item Translation : $\vec{w}$ est un  d'affixe $b$. L'\'ecriture
+  complexe de la translation de vecteur $\vec{w}$ est : $z'=z+b$.
+\item Homoth\'etie : $\Omega$ est un point d'affixe $\omega$ et $k$ est
+  un r\'eel non nul. L'\'ecriture complexe de l'homoth\'etie de centre
+  $\Omega$ de rapport $k$ est : $z'- \omega=k(z-\omega)$.
+\item Rotation : $\Omega$ est un point d'affixe $\omega$ et $\theta$
+  est un r\'eel. L'\'ecriture complexe de la rotation de centre $\Omega$
+  et d'angle $\theta$ est : $z'-\omega=e^{i\theta}(z-\omega)$.
+\end{itemize}
+\end{tabular}
+
+{\small\it d\'emonstration :
+
+\begin{itemize}
+\item $M'$ est l'image de $M$ par la translation de vecteur $\vec{w}$
+  \'equivaut \`a $\vec{MM'} = \vec{w}$ soit $z'-z=b$.
+\item $M'=h(M)$ \'equivaut \`a $\vec{\Omega M'}=k\vec{\Omega M}$ soit
+  $z'-\omega=k(z-\omega)$.
+\item $M'=r(M)$ \'equivaut \`a $\Omega M'=\Omega M$ et $(\vec{\Omega
+  M};\vec{\Omega M'})=\theta$ soit $\vert z'-\omega \vert=\vert z-\omega
+  \vert$ et arg($\di \frac{z'-\omega}{z-\omega})=\theta$.
+
+Ceci \'equivaut \`a $\di \frac{z'-\omega}{z-\omega}$ a pour module 1 et
+pour argument $\theta$ d'o\`u $\di \frac{z'-\omega}{z-\omega}=e^{i\theta}$.
+\end{itemize}}
+\end{enumerate}
+
+
+\newpage
+
+\section{Devoir libre }
+
+
+\section{Remarques sur le chapitre - Probl\`emes rencontr\'es}
+
+\begin{enumerate}
+\item Mauvaise compr\'ehension de $Z\overline{Z}= A^2+B^2$ 
+
+\textit{Rem\`ede : donner dans le cours une formule sous la forme $Re(Z)^2+Im(Z)^2$...}
+
+\item Les \'equations de cercles et de droites mal sues. Seulement deux exos de chaque, apparemment insuffisant. Ou est-ce le probl\`eme du $a,b$ \`a la place de $x$ et $y$
+
+\textit{Rem\`ede : faire des exos \underline{\`a part} en d\'ebut de chapitre + poser les exos en $x$ et $y$.}
+
+\textit{Rem\`ede : ne pas faire d'\'equations de cercle dans un premier temps et pour les lieux, faire droites et autres comme hyperbole. Permet d'\'eviter les homographiques = imaginaire ou ils sont perdus dans les calculs}
+
+\item Formule du barycentre OK.
+
+\item L'interpr\'etation de la colin\'earit\'e des vecteurs en complexes ne passe pas malgr\'e : propriete dans le cours+ demo + deux exos.
+
+\textit{Rem\`ede : rien pour l'instant. Même probl\`eme que l'ann\'ee derni\`ere}
+\end{enumerate}
+
+
+\newpage
+
+\begin{center}
+\includegraphics[scale=2]{complexestrigo.1}
+\end{center}
+\end{document}

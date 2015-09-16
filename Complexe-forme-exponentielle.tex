@@ -1,0 +1,207 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage[utf8x]{inputenc}
+\usepackage[french]{babel}
+\usepackage{exostyle,graphicx,fancybox}
+
+
+% \newcommand{\elim}[1]{#1}
+% \newcommand{\notep}[1]{{{\hfill\color{red}\it #1}}}
+% \newcommand{\exemp}[1]{{\color{blue}\it\underline{\it Exemple \thePROPno } : #1}}
+% \newcommand{\exer}[1]{{\color{green}\it\underline{\it Exercice} : #1}}
+% \newcommand{\corr}[1]{{\it \color{red} \underline{ Corrig\'e} : #1 }}
+% \newcommand{\preuve}[1]{{\it\scriptsize \underline{Preuve} : \\ #1}}
+% %%%%%%%%%%%%%%%%%%%%%%   avec lien
+% \newcommand{\monlien}[2]{\hfill\hyperlink{#1}{#2}}
+% \newcommand{\macible}[1]{\hfill\hypertarget{#1}{}}
+% % %%%%%%%%%%%%%%%%%%% en vidant ces commandes, on enl\`eve les liens et les notes.
+% \renewcommand{\elim}[1]{}
+
+\begin{document}
+
+
+
+%  \newtheorem{mytheorem}[theorem]{{Propri\'et\'e} }
+%  \newtheorem{mydefinition}[theorem]{{D\'efinition } }
+
+
+\begin{center} 
+{\bf\Large Forme exponentielle des nombres complexes} 
+\end{center}
+
+
+
+\underline{Introduction  de la notation :}
+
+ Soit $f$ la fonction définie sur $\R$ par : $f(\theta)=\cos(\theta)+i\sin(\theta)$.
+
+$f(\theta)$ est un nombre complexe de module 1 et d'argument $\theta$.
+\begin{itemize}
+
+ \item On a montré dans un cours précédent que : $\arg(z_1\times z_2)=\arg(z_1)+\arg(z_2)$. Donc :
+ $f(\theta+\theta')=f(\theta)\times f(\theta')$.
+\item De plus : $f(0)=1$
+
+\end{itemize}
+
+Par analogie avec la fonction exponentielle, on convient de noter : \fbox{$\cos(\theta)+i\sin(\theta)=e^{i\theta}$}
+
+\section{Forme exponentielle des nombres complexes}
+%\subsection{Introduction- Notation $e^{i\theta}$}
+
+
+\subsection{\'Ecriture exponentielle des complexes de module 1}
+
+{\bf Définition :}
+
+\begin{tabular}{p{.5cm}||p{17cm}}
+& Tout nombre complexe de module 1 et d'argument $\theta$ peut s'écrire sous la forme : 
+\fbox{$\cos(\theta)+i\sin(\theta)=e^{i\theta}$}
+%Les nombres complexes $z$ tels que $|z|=1$ s'\'ecrivent sous la forme \fbox{$z=e^{i\theta}=e^{i\arg(z)}$}
+\end{tabular}
+
+
+\medskip
+
+{\it Exemple 1 : 
+\begin{enumerate}
+\item Placer sur le cercle trigonométrique les points $M_i$ d'affixes  : $z_1=e^{i\frac{\pi}{2}}$;  $z_2=e^{i\pi}$;  $z_3=e^{i\frac{3\pi}{2}}$;  $z_4=e^{i2\pi}$; $z_5=e^{i\frac{2\pi}{3}}$.
+ \item Donner l'\'ecriture alg\'ebrique des 5 complexes précédents.
+\end{enumerate}}
+
+\medskip
+
+{\it Exemple 2 : \'Ecrire sous forme $e^{i\theta}$ les complexes suivants : $z'_1=i$; $z'_2=-i$; $z'_3=\dfrac{-1}{2}i+ \dfrac{\sqrt{3}}{2}$}
+
+
+
+\subsection{Cas g\'en\'eral}
+
+{\bf Définition - Propriété }
+
+\begin{tabular}{p{.5cm}||p{17cm}}
+&
+ Tout complexe $z\neq 0$  s'\'ecrit sous la forme \fbox{$z=re^{i\theta}$} avec 
+\fbox{$r=|z|$ et $\theta\equiv \arg(z) [2\pi]$}.
+
+Cette \'ecriture est appel\'ee \og forme exponentielle du complexe $z$\fg
+\end{tabular}
+
+\medskip
+\begin{tabular}{p{.5cm}||p{17cm}}
+&
+Réciproque : Si $z\in \C^*$ et $z=re^{i\theta}$ avec $r>0$ alors $r=|z|$ et $\theta=\arg(z)$
+\end{tabular}
+
+\medskip
+
+{\it Exemple 3 :\begin{enumerate}
+\item \'Ecrire sous forme exponentielle : $z_1=-2i$, $z_2=1-i$,$z_3=2-2i\sqrt{3}$
+ \item \'Ecrire sous forme alg\'ebrique : $z'=4e^{i\frac{2\pi}{3}}$
+\end{enumerate}
+}
+
+\section{Calculs avec la notation exponentielle}
+
+\subsection{Propri\'et\'es alg\'ebriques}
+
+{\bf Propriétés :}
+
+
+\begin{tabular}{p{.5cm}||p{17cm}}
+&
+Pour tous nombres r\'eels $\theta, \theta'$ :
+
+\begin{center}
+\fbox{ 
+\begin{tabular}[c]{ll}
+$e^{i\theta}\times e^{i\theta'} =e^{i(\theta+\theta')}$ & $(e^{i\theta})^n=e^{in\theta},\ \ n\in \Z$ \\ 
+$\di \frac{1}{e^{i\theta}}=e^{-i\theta}=\overline{e^{i\theta}} $& 
+$\di \frac{e^{i\theta}}{e^{i\theta'}} =e^{i(\theta-\theta')}$
+\end{tabular}}
+\end{center}
+\end{tabular}
+
+\medskip
+
+\underline {Remarque :} Ces propriétés sont admises. Elles résultent du fait que $|e^{i\theta}|=1 $ et des propriétés des arguments.
+
+\medskip
+
+{\it Exemple 4 : 
+
+ Mettre sous forme exponentielle :
+\begin{enumerate}
+ \item $z_1=-\sqrt{3}+i$, $z_2=e^{-i\frac{\pi}{6}}z_1^2$, $z_2=\dfrac{2z_1}{5e^{-i\frac{\pi}{6}}}$ 
+ \item D\'eterminer les entiers $n$ tels que $z_1^n$ est un nombre r\'eel.
+\end{enumerate}}
+
+\medskip
+
+{\it Exemple 5 : Retrouver les formules d'addition ($\cos(a+b)$, $\cos(a-b)$, $\sin(a+b)$ et $\sin(a-b)$) et 
+de duplication ($\cos(2a)$, $\sin(2a)$) en utilisant les nombres complexes
+}
+
+
+\subsection{Formule d'Euler}
+
+{\bf Propriété}
+
+
+\begin{tabular}{p{.5cm}||p{17cm}}
+&
+Pour tout $\theta \in \R$ : 
+\fbox{$\di \cos(\theta)=\frac{e^{i\theta}+e^{-i\theta}}{2}$}
+\ \ \ et \ \ \ \ \fbox{$\di \sin(\theta)=\frac{e^{i\theta}-e^{-i\theta}}{2i}$}
+\end{tabular}
+
+\medskip
+{\it Exemple 6 : lin\'eariser $\cos^2(x)$ et $\sin^2(x)$.
+ 
+
+\end{document}
+
+
+
+
+\subsection{Application g\'eom\'etrique : \'equation param\'etrique complexe d'un cercle}
+
+\frameprop{}{
+\vspace{-.2cm}
+
+\begin{enumerate}
+ \item l'ensemble des points $M$ du plan tels que $z=z_{\Omega}+Re^{i\theta}$ constitue le cercle ${\cal C}(\Omega,R)$.
+\item l'\'ecriture pr\'ec\'edente est appel\'ee "\'equation complexe`` du cercle ${\cal C}(\Omega,R)$
+\end{enumerate}
+}{
+\notep{faire la preuve}
+
+\exemp{
+\begin{enumerate}
+\item Donner la repr\'esentation param\'etrique complexe du cercle de centre $A(1+2i)$ et de rayon 2
+\item Repr\'esenter les points $M(z)$ du plan tels que $z=3+2e^{i\theta}$
+\end{enumerate}
+}
+\exer{ pas pour l'instant}
+}
+
+
+% \newcommand{\exempProp4}[0]{
+% Mettre sous forme exponentielle :
+% \begin{enumerate}
+%  \item $z_1=-\sqrt{3}+i$, $z_2=e^{-i\frac{\pi}{6}}z_1^2$, $z_2=\dfrac{2z_1}{5e^{-i\frac{\pi}{6}}}$ 
+%  \item D\'eterminer les entiers $n$ tels que $z_1^n$ est un nombre r\'eels.
+% \end{enumerate}
+% }
+
+
+
+
+\notep{Faire les preuves}
+
+\exer{2,3 feuille  }
+
+}
+
+\end{document}
